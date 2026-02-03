@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+
+<body>
+
+
+
+<script>
+
+function calcWork()
+{
+    const F1 = +document.getElementById("effortForce").value;
+    let d1 = +document.getElementById("effortArm").value;
+    let d2;
+    const F2 = +document.getElementById("loadForce").value;
+    const ratio = F1 / F2;
+    console.log(ratio);
+    let htmlCode = "<table border=1><th>F1</th><th>d1</th><th>F2<th>d2</th>";
+   do {
+        d2 = d1 * ratio;
+        htmlCode += "<tr><td>"+F1.toFixed(2)+"</td><td>"+d1.toFixed(2)+"</td><td>"+F2.toFixed(2)+"</td><td>"+d2.toFixed(2)+"</td></tr>";
+       
+        d1 += 1;
+   } while (d1 < 5);
+    
+    htmlCode += "</table>";
+    document.getElementById("show").innerHTML = htmlCode;
+}
+
+    
+</script>
+
+<div id ="work">
+    <input type = number placeholder="Effort force (N)" id = "effortForce" value="50">N<br>
+    <input type = number placeholder="Effort arm (m)" id = "effortArm" value="1">m<br>
+    <input type = number placeholder="Load force (N)" id = "loadForce" value="100">N<br>
+   
+    <button onclick="calcWork()">Calculate</button>
+</div>
+<br>
+<div id = "show">
+  
+</div>
+
+</body>
+</html>
