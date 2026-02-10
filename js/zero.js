@@ -42,15 +42,29 @@ const fig2ctx=fig2.getContext('2d');
 const fig3 = document.getElementById('figure3');
 const fig3ctx = fig3.getContext('2d');
 
-//const fig4 = document.getElementById('figure4');
-//const fig4ctx = fig4.getContext('2d');
 
-//const fig5 = document.getElementById('figure5');
-//const fig5ctx = fig5.getContext('2d');
-/*
+const fig4 = document.getElementById('figure4');
+const fig4ctx = fig4.getContext('2d');
+const fig4a = document.getElementById('f4a');
+const fig4t = document.getElementById('f4t');
+fig4a.addEventListener('click', toggleDiagram);
+fig4t.addEventListener('click', toggleDiagram);
+toggleButton(fig4t);
+
+const fig5 = document.getElementById('figure5');
+const fig5ctx = fig5.getContext('2d');
+const fig5a = document.getElementById('f5a');
+const fig5t = document.getElementById('f5t');
+fig5a.addEventListener('click', toggleDiagram);
+fig5t.addEventListener('click', toggleDiagram);
+toggleButton(fig5t);
+
 const fig6 = document.getElementById("figure6");
 const fig6ctx = fig6.getContext('2d');
+const fig6s = document.getElementById('f6s');
+fig6s.addEventListener('click', toggleDiagram);
 
+// figure 7 buttons
 const fig7 = document.getElementById('figure7');
 const fig7ctx = fig7.getContext('2d');
 const fig7a = document.getElementById('f7a');
@@ -60,6 +74,7 @@ fig7t.addEventListener('click', toggleDiagram);
 toggleButton(fig7t);
 
 
+// figure 8 buttons
 const fig8 = document.getElementById('figure8');
 const fig8ctx = fig8.getContext('2d');
 const fig8a = document.getElementById('f8a');
@@ -67,6 +82,7 @@ const fig8t = document.getElementById('f8t');
 fig8a.addEventListener('click', toggleDiagram);
 fig8t.addEventListener('click', toggleDiagram);
 toggleButton(fig8t);
+
 
 
 // ** fig 9 buttons
@@ -78,7 +94,7 @@ const fig9t = document.getElementById("f9t");
 fig9t.addEventListener('click', toggleDiagram);
 toggleButton(fig9t);
 
-
+/*
 
 const fig10 = document.getElementById('figure10');
 const fig10ctx = fig10.getContext('2d');
@@ -238,11 +254,16 @@ const initTriangles = JSON.parse(JSON.stringify(triangles));
 figureOne();
 figureTwo();
 figureThree();
-//figureFour();
+figureFour(false);
+figureFive(false);
+figureSix(false);
+figureSeven(false);
+figureEight(false);
+/*
 figureFive();
 figureSix();
 figureSeven();
-figureEight(false);
+
 figureNine(false);
 figureTen(false);
 figureEleven(false);
@@ -253,7 +274,7 @@ figureFifteen(energyChange);
 figureSixteen(false);
 figureSeventeen(0);
 figureEighteen(false);
-
+*/
 
 ///////////////////// functions ///////////////////
 function setup(diag) {
@@ -449,170 +470,19 @@ function figureThree() {
 
 }
 
-function figureFour() {
+function figureFour(moving) {
     const ctx = fig4ctx;
-   
-    ctx.clearRect(0, 0, width, height);
-    drawText(ctx,"Applied force at an angle to", 10, 20, 20);
-    drawText(ctx,"horizontal.", 10, 40, 20);
+    showCoord(fig4);
 
-    ctx.save()
-    ctx.rotate(tilt);
-    drawArrowTriangle(ctx, 200, 130, 150, 150, "R");
-     // right angle
-    ctx.rect(202,115, 15, 15);
-    ctx.stroke();
-
-    drawText(ctx, "a.f",150, 80);
-
-
-    //drawText(ctx, "i.f", 105, 215);
-    //drawText(ctx, "u.f", 125, 130);
-
-    drawText(ctx, "Application", 200,150, 14, black);
-    drawText(ctx, "point.", 200,165, 14, black);
-    drawCircle(ctx, 200, 130, 3, "red", true);
-
-
-
-
-    ctx.restore();
-    drawCircle(ctx,205,220,3,red,true);
-    drawText(ctx, 'θ', 170,215);
-
-    drawText(ctx,"Figure 2.", 10, 345, 18);
-
-}
-
-function figureFive() {
-
-    const ctx = fig5ctx;
-    ctx.clearRect(0, 0, width, height);
-
-    drawText(ctx,"The relationship between force and", 10, 20, 16);
-    drawText(ctx,"distance does not depend on there ", 10, 40, 16);
-    drawText(ctx,"being a mechanism to transmit the force.", 10, 60, 16);
-
-    drawCircle(ctx,110,150,5,"black",true);
-    drawCircle(ctx,233,345,5,"black",true);
-    drawText(ctx, " = Barycentre", 240, 350, 12);
-
-    drawArrow(ctx, 50, 110, 50, 150, "black");
-
-    drawText(ctx, "F",50,100, 15);
-    drawText(ctx,"D", 73, 145, 15);
-
-    drawArrow(ctx, 228, 110, 228, 150, "black");
-
-    // Set the dash pattern: [dashLength, gapLength]
-    ctx.setLineDash([5, 5]);
-
-    // Draw a line
-    ctx.beginPath();
-    ctx.moveTo(50, 150);
-    ctx.lineTo(225, 150);
-    ctx.stroke();
-
-    drawText(ctx, "f",227,190, 15);
-    drawText(ctx,"d", 173, 145, 15);
-
-    drawText(ctx,"Figure 5.", 10, 350, 18);
-}
-
-function figureSix(){
-    const ctx = fig6ctx;
-    ctx.clearRect(0, 0, width, height);
-
-    drawText(ctx,"With no mechanism to transmit the force,", 10, 20, 16);
-    drawText(ctx,"applied force becomes kinetic energy. ", 10, 40, 16);
-    drawCircle(ctx,110,150,5,"black",true);
-    drawCircle(ctx,233,345,5,"black",true);
-    drawText(ctx, " = Barycentre", 240, 350, 12);
-    drawArrow(ctx, 50, 110, 50, 150, black);
-
-    drawText(ctx, "Ke",50,100, 15);
-
-
-
-    // Set the dash pattern: [dashLength, gapLength]
-    ctx.setLineDash([5, 5]);
-
-    // Draw a line
-    ctx.beginPath();
-    ctx.moveTo(50, 150);
-    ctx.lineTo(225, 150);
-    ctx.stroke();
-
-    drawText(ctx,"Figure 6.", 10, 350, 18);
-}
-
-function figureSeven(moving) {
-    ctx = fig7ctx;
-    moveToZero(fig7, 7);
-    clearCanvas(fig7);
-    drawText(ctx,"As the distance between two bodies changes, the ratio of ",10,16,16);
-    drawText(ctx,"applied force to input force changes inversely with distance ",10,35,16);
-    drawText(ctx,"from the fulcrum. ",10,52,16);
-    drawText(ctx,"Figure 7.", 10, 350, 18);
-
-
-    moveToCentre(fig7,7);
-    drawCircle(ctx,100,105,2,"red",true);
-    drawText(ctx,"= fulcrum.", 105, 110, 12,"red");
-    drawText(ctx,"| = applied force", 100,125, 12, "green");
-    drawCircle(ctx,100,135,2,"green",true);
-    drawText(ctx,"= application point.", 105, 140, 12,"green");
-    drawText(ctx,"- = input force", 100,155, 12, "blue");
-    drawCircle(ctx,100,165,2,"blue",true);
-    drawText(ctx,"= application point.", 105, 170, 12,"blue");
-
-
-    drawCircle(ctx,0,0,2,"red",true);
-    drawBodyTriangle(ctx, triangleOne);
-    drawBodyTriangle(ctx, triangleTwo);
-
-    // motion
-    if(direction === "A"){
-        triangleOne.base+=.6;
-        triangleOne.base+=.4;
-        triangleTwo.base+=.6;
-        triangleTwo.base+=.4;
-    }
-    else{
-        triangleOne.base -=.6;
-        triangleOne.base -=.4;
-        triangleTwo.base -=.6;
-        triangleTwo.base -=.4;
-    }
-
-    triangleOne.height = triangleOne.area / triangleOne.base;
-    triangleTwo.height = triangleTwo.area / triangleTwo.base;
-
-    if(direction ==="A" && triangleOne.base >= 228) {
-        moving = false;
-        toggleButton(fig7t);
-    }
-    if(direction === "T" && triangleOne.height >= 60){
-        moving = false;
-        toggleButton(fig7a);
-    }
-
-    if(moving) requestAnimationFrame(figureSeven);
-
-}
-
- 
-function figureEight(moving) {
-    ctx = fig8ctx;
-    moveToZero(fig8, 8);
-    clearCanvas(fig8);
+    moveToZero(fig4, 4);
+    clearCanvas(fig4);
     drawText(ctx,"As the distance between two bodies changes, the ratio of ",10,16,16);
     drawText(ctx,"potential energy to kinetic energy changes inversely with distance from ",10,35,16);
     drawText(ctx,"the barycentre. ",10,52,16);
 
-    drawText(ctx,"Figure 8.", 10, 350, 18);
+    drawText(ctx,"Figure 4.", 10, 350, 18);
 
-    moveToCentre(fig8,8);
+    moveToCentre(fig4,4);
     drawCircle(ctx,100,105,2,"red",true);
     drawText(ctx,"= Barycentre.", 105, 110, 12,"red");
     drawCircle(ctx,100,135,2,"green",true);
@@ -620,7 +490,6 @@ function figureEight(moving) {
     drawCircle(ctx,100,165,2,"blue",true);
     drawText(ctx,"= mass point.", 105, 170, 12,"blue");
 
-
     drawCircle(ctx,0,0,2,"red",true);
     drawBodyTriangle(ctx, triangleOne);
     drawBodyTriangle(ctx, triangleTwo);
@@ -644,30 +513,36 @@ function figureEight(moving) {
 
     if(direction ==="A" && triangleOne.base >= 228) {
         moving = false;
-        toggleButton(fig8t);
+        toggleButton(fig4t);
     }
     if(direction === "T" && triangleOne.height >= 60){
         moving = false;
-        toggleButton(fig8a);
+        toggleButton(fig4a);
     }
 
-    if(moving) requestAnimationFrame(figureEight);
-
+    if(moving) requestAnimationFrame(figureFour);
 }
 
-function figureNine(moving) {
-    const ctx = fig9ctx;
-    moveToZero(fig9, 9);
-    clearCanvas(fig9);
+   
+
+
+
+function figureFive(moving) {
+
+    const ctx = fig5ctx;
+    ctx.clearRect(0, 0, width, height);
+   
+    moveToZero(fig5, 5);
+    clearCanvas(fig5);
     let angleOne = 0;
     let angleTwo = 0;
     
     drawText(ctx,"As the distance between two bodies changes, the angle representing ",10,16,16);
     drawText(ctx,"the ratio of potential energy to kinetic energy changes. ",10,35,16);
-    drawText(ctx,"Figure 9.", 10, 350, 18);
+    drawText(ctx,"Figure 5.", 10, 350, 18);
     
     // after move to centre
-    moveToCentre(fig9,9);
+    moveToCentre(fig5,5);
     drawCircle(ctx,100,105,2,"red",true);
     drawText(ctx,"= barycentre.", 105, 110, 12,"red");
     drawText(ctx,"| = kinetic energy", 100,125, 12, "green");
@@ -709,14 +584,122 @@ function figureNine(moving) {
 
     if(direction ==="A" && triangles[0].base >= 228) {
         moving = false;
-        toggleButton(fig9t);
+        toggleButton(fig5t);
     }
     if(direction === "T" && triangles[0].base <= 60){
         moving = false;
-        toggleButton(fig9a);
+        toggleButton(fig5a);
     }
 
-    if(moving) requestAnimationFrame(figureNine);
+    if(moving) requestAnimationFrame(figureFive);
+
+}
+
+function figureSix(moving = false){
+    const ctx = fig6ctx;
+    ctx.clearRect(0, 0, width, height);
+
+    moveToZero(fig6, 6);
+    clearCanvas(fig6);
+    drawText(ctx,"The work done by the two bodies is the same;",5,20,16);
+    drawText(ctx,"the distance of the mass point from the barycentre is proportional",5,40,16);
+    drawText(ctx, "to their masses", 5, 60, 16);
+     drawText(ctx,"Figure 6.", 10, 350, 18);
+
+    drawCircle(ctx,240,300,2,"blue",true);
+    drawText(ctx," = mass point.", 245, 305, 12,"blue");
+
+    drawCircle(ctx,240,315,2,"green",true);
+    drawText(ctx," = mass point.", 245, 320, 12,"green");
+
+    drawCircle(ctx,240,330,2,"red",true);
+    drawText(ctx,"  = barycentre.", 240, 335, 12,"red");
+
+    drawBox(ctx, 237, 342, 5, 5, true, "blue");
+    drawText(ctx,"  = work done.", 240, 348, 12,"blue");
+
+    drawBox(ctx, 237, 352, 5, 5, true, "green");
+    drawText(ctx,"= work done.", 247, 358, 12,"green");
+
+    
+    polarAxis(fig6);
+    moveToCentre(fig6, 6);
+
+    drawBodyO(ctx, bodies[0]);
+    drawBodyO(ctx, bodies[1]);
+
+    bodies[0].width += .8;
+    bodies[0].height = bodies[0].area / bodies[0].width;
+    bodies[1].width += 1;
+    bodies[1].height = bodies[1].area / bodies[1].width;
+
+    if(!moving) return;
+    if(bodies[0].width > 130){
+        toggleButton(fig6s);
+        moving = false;
+    }
+
+    if(moving) requestAnimationFrame(figureSix);
+}
+
+function figureSeven(moving = false) {
+    ctx = fig7ctx;
+    moveToZero(fig7, 7);
+    clearCanvas(fig7);
+    
+    drawText(ctx,"The Perspective of observer A;",5,20,16);
+    drawText(ctx,"Figure 7.", 10, 350, 18);
+    drawText(ctx,"A",pos[0].x,pos[0].y,24,  pos[0].colour);
+    drawText(ctx,"B",pos[1].x,pos[1].y,24, pos[1].colour);
+    drawCircle(ctx, 38, 180,2,"red",true);
+    drawCircle(ctx,240, 343, 2, "red", true);
+    drawText(ctx,"  = mass point A.", 240, 348, 14,"red");
+
+
+    if(!moving) return;
+    if(direction === "A") {
+        pos[1].x = pos[1].x + 3;
+        if (pos[1].x >= initPos[3].x ) {moving = false; toggleButton(fig7t)}
+    }
+    else if(direction === "T") {
+        pos[1].x = pos[1].x - 3;
+        if (pos[1].x <= initPos[1].x ) {moving = false; toggleButton(fig7a)}
+    }
+
+    if(moving) requestAnimationFrame(figureSeven);
+}
+
+ 
+function figureEight(moving) {
+    ctx = fig8ctx;
+    showCoord(fig8,false);
+    moveToZero(fig8, 8);
+    clearCanvas(fig8);
+   
+    drawText(ctx,"The Perspective of observer B;",5,20,16);
+    drawText(ctx,"Figure 8.", 10, 350, 18);
+    drawText(ctx,"A",pos[2].x,pos[2].y,24,  pos[2].colour);
+    drawText(ctx,"B",pos[3].x,pos[3].y,24, pos[3].colour);
+    drawCircle(ctx, 340, 182,2,"red",true);
+    drawCircle(ctx,240, 343, 2, "red", true);
+    drawText(ctx,"  = mass point B.", 240, 348, 14,"red");
+
+    if(!moving) return;
+
+    if(direction === "T") {
+        pos[2].x = pos[2].x + 3;
+        if (pos[2].x >= initPos[2].x ) {moving = false; toggleButton(fig8a)}
+    }
+    else if(direction === "A") {
+        pos[2].x = pos[2].x - 3;
+        if (pos[2].x <= pos[0].x ) {moving = false; toggleButton(fig8t)}
+    }
+   
+    if(moving) requestAnimationFrame(figureEight);
+}
+
+function figureNine(moving) {
+    
 
 }
 
@@ -802,21 +785,6 @@ function figureThirteen(moving){
     const ctx = fig13ctx;
     clearCanvas(fig13);
 
-    drawText(ctx,"The Perspective of observer B;",5,20,16);
-    drawText(ctx,"Figure 13.", 10, 350, 18);
-    drawText(ctx,"A",pos[2].x,pos[2].y,24,  pos[2].colour);
-    drawText(ctx,"B",pos[3].x,pos[3].y,24, pos[3].colour);
-    if(!moving) return;
-
-    if(direction === "T") {
-        pos[2].x = pos[2].x + 1;
-        if (pos[2].x >= initPos[2].x ) {moving = false; toggleButton(fig13a)}
-    }
-    else if(direction === "A") {
-        pos[2].x = pos[2].x - 1;
-        if (pos[2].x <= pos[0].x ) {moving = false; toggleButton(fig13t)}
-    }
-    if(moving) requestAnimationFrame(figureThirteen);
 }
 
 
@@ -1022,58 +990,47 @@ function toggleDiagram() {
 
     //console.log(from);
 
-    if (from === 'f7a') {
+    if (from === 'f4a') {
         direction = "A";
-        figureSeven(true);
+        figureFour(true);
+    }
+
+    if (from === 'f4t') {
+        direction = "T";
+        figureFour(true);
+    }
+
+    if (from === 'f5a') {
+        direction = "A";
+        figureFive(true)
+    }
+
+    if (from === 'f5t') {
+        direction = "T";
+        figureFive(true);
+    }
+
+    if (from === 'f6s') {
+        figureSix(true);
     }
 
     if (from === 'f7t') {
-        direction = "T";
+        direction = "T"
         figureSeven(true);
     }
 
-    if (from === 'f8a') {
+    if (from === 'f7a') {
         direction = "A";
-        figureEight(true);
+        figureSeven(true);
     }
 
     if (from === 'f8t') {
         direction = "T";
         figureEight(true);
     }
-
-    if (from === 'f9a') {
-        direction = "A";
-        figureNine(true)
-    }
-
-    if (from === 'f9t') {
-        direction = "T";
-        figureNine(true);
-    }
-
-    if (from === 'f11a') {
-        direction = "A";
-        figureEleven(true);
-    }
-
-    if (from === 'f11t') {
-        direction = "T"
-        figureEleven(true);
-    }
-
-    if (from === 'f12a') {
-        direction = "A";
-        figureTwelve(true);
-    }
-
-    if (from === 'f12t') {
-        direction = "T";
-        figureTwelve(true);
-    }
-    if (from === 'f13a') {
+    if (from === 'f8a') {
        direction = "A";
-        figureThirteen(true);
+        figureEight(true);
     }
 
     if (from === 'f13t') {
