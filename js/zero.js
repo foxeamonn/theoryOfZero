@@ -84,7 +84,6 @@ fig8t.addEventListener('click', toggleDiagram);
 toggleButton(fig8t);
 
 
-
 // ** fig 9 buttons
 const fig9 = document.getElementById('figure9')
 const fig9ctx=fig9.getContext('2d');
@@ -94,16 +93,17 @@ const fig9t = document.getElementById("f9t");
 fig9t.addEventListener('click', toggleDiagram);
 toggleButton(fig9t);
 
-/*
-
+// fig10 buttons
 const fig10 = document.getElementById('figure10');
 const fig10ctx = fig10.getContext('2d');
-spiral.onload = ()=> {
-    // Draw the spiral on the canvas
-    fig10ctx.drawImage(spiral, 0, 40, 560, 300);
-}
+const fig10a = document.getElementById("f10a");
+fig9a.addEventListener('click', toggleDiagram);
+const fig10t = document.getElementById("f10t");
+fig9t.addEventListener('click', toggleDiagram);
+toggleButton(fig10t);
 
 
+/*
 // ** fig 11 buttons
 const fig11 = document.getElementById('figure11')
 const fig11ctx=fig11.getContext('2d');
@@ -259,12 +259,14 @@ figureFive(false);
 figureSix(false);
 figureSeven(false);
 figureEight(false);
+figureNine(false);
+figureTen(false);
 /*
 figureFive();
 figureSix();
 figureSeven();
 
-figureNine(false);
+
 figureTen(false);
 figureEleven(false);
 figureTwelve(false);
@@ -672,7 +674,6 @@ function figureSeven(moving = false) {
  
 function figureEight(moving) {
     ctx = fig8ctx;
-    showCoord(fig8,false);
     moveToZero(fig8, 8);
     clearCanvas(fig8);
    
@@ -699,16 +700,48 @@ function figureEight(moving) {
 }
 
 function figureNine(moving) {
-    
+    ctx = fig9ctx;
+    moveToZero(fig9, 9);
+    clearCanvas(fig9);
 
+    drawText(ctx,"The true state of affairs; both bodies move",5,20,16);
+    drawText(ctx,"relative to their barycentre. ",5,36,16);
+
+    drawText(ctx,"Figure 9.", 10, 350, 18);
+    drawCircle(ctx, 180, 180, 2, "red", true);
+    drawCircle(ctx,240, 343, 2, "red", true);
+    drawText(ctx,"  = barycentre.", 240, 348, 14,"red");
+
+    drawText(ctx,"A",pos[4].x,pos[4].y,24,  pos[4].colour);
+    drawText(ctx,"B",pos[5].x,pos[5].y,24, pos[5].colour);
+    if(!moving) return;
+
+    if(direction === "A") {
+        pos[4].x = pos[4].x - 1;
+        pos[5].x = pos[5].x + 1;
+        if (pos[4].x <= initPos[0].x ) {moving = false; toggleButton(fig9t)}
+    }
+    else if(direction === "T") {
+        pos[4].x = pos[4].x + 1;
+        pos[5].x = pos[5].x - 1;
+        if (pos[4].x >= initPos[4].x ) {moving = false; toggleButton(fig9a)}
+    }
+
+    if(moving) requestAnimationFrame(figureNine);
 }
 
 function figureTen() {
-    //showCoord(fig10, true);
+    showCoord(fig10, true);
     const ctx = fig10ctx;
-    drawText(ctx,"The natural motion of a body is a spiral centering on the barycentre with ",10,16,16);
-    drawText(ctx,"another body. ",10,32,16);
-    drawText(ctx,"Figure 10.", 10, 358, 18);
+  
+    drawText(ctx,"The barycentre changes with B accelerating.",5,20,16);
+    drawText(ctx,"Figure 10.", 10, 350, 18);
+
+    drawText(ctx,"A",pos[6].x, pos[6].y, pos[6].myFont,  pos[6].colour);
+    drawText(ctx,"B",pos[7].x, pos[7].y, pos[7].myFont, pos[7].colour);
+    drawCircle(ctx, x, y, 2, "red", true);
+    drawArrow(ctx, 50, 180, x-5, 180, black);
+    drawArrow(ctx, 315, 180, x+5, 180, black);
 }
 
 function figureEleven(moving) {
@@ -793,28 +826,7 @@ function figureFourteen(moving) {
     const ctx = fig14ctx;
     clearCanvas(fig14);
     //showCoord(fig14, false);
-    drawText(ctx,"The true state of affairs; both bodies move",5,20,16);
-    drawText(ctx,"relative to their barycentre. ",5,36,16);
-
-    drawText(ctx,"Figure 14.", 10, 350, 18);
-    drawCircle(ctx, 180, 180, 2, "red", true);
-
-    drawText(ctx,"A",pos[4].x,pos[4].y,24,  pos[4].colour);
-    drawText(ctx,"B",pos[5].x,pos[5].y,24, pos[5].colour);
-    if(!moving) return;
-
-    if(direction === "A") {
-        pos[4].x = pos[4].x - 1;
-        pos[5].x = pos[5].x + 1;
-        if (pos[4].x <= initPos[0].x ) {moving = false; toggleButton(fig14t)}
-    }
-    else if(direction === "T") {
-        pos[4].x = pos[4].x + 1;
-        pos[5].x = pos[5].x - 1;
-        if (pos[4].x >= initPos[4].x ) {moving = false; toggleButton(fig14a)}
-    }
-
-    if(moving) requestAnimationFrame(figureFourteen);
+   
 }
 
 function figureFifteen(energy){
@@ -1033,14 +1045,14 @@ function toggleDiagram() {
         figureEight(true);
     }
 
-    if (from === 'f13t') {
+    if (from === 'f9t') {
         direction = "T";
-        figureThirteen(true);
+        figureNine(true);
     }
 
-    if (from === 'f14a') {
+    if (from === 'f9a') {
         direction = "A";
-        figureFourteen(true);
+        figureNine(true);
     }
      if (from === 'f14t') {
         direction = "T";
