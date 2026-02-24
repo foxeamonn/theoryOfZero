@@ -97,9 +97,9 @@ toggleButton(fig9t);
 const fig10 = document.getElementById('figure10');
 const fig10ctx = fig10.getContext('2d');
 const fig10a = document.getElementById("f10a");
-fig9a.addEventListener('click', toggleDiagram);
+fig10a.addEventListener('click', toggleDiagram);
 const fig10t = document.getElementById("f10t");
-fig9t.addEventListener('click', toggleDiagram);
+fig10t.addEventListener('click', toggleDiagram);
 toggleButton(fig10t);
 
 
@@ -317,7 +317,6 @@ function showCoord(diagram, centred) {
     });
 }
 
-
 function calcHyp(distance, height) {
     return Math.sqrt((distance * distance) + (height*height))
 }
@@ -331,7 +330,6 @@ function arcAreaDegrees(radius, angleDegrees) {
     const area = (angleDegrees / 360) * Math.PI * Math.pow(radius, 2);
     return area;
 }
-
 
 function radiusFromArcAreaRadians(area, angleRadians) {
     const radius = Math.sqrt((2 * area) / angleRadians);
@@ -526,8 +524,6 @@ function figureFour(moving) {
 }
 
    
-
-
 
 function figureFive(moving) {
 
@@ -730,18 +726,44 @@ function figureNine(moving) {
     if(moving) requestAnimationFrame(figureNine);
 }
 
-function figureTen() {
+function figureTen(moving = false) {
     showCoord(fig10, true);
+     clearCanvas(fig10);
+    let energy = 4;
     const ctx = fig10ctx;
-  
+   
     drawText(ctx,"The barycentre changes with B accelerating.",5,20,16);
     drawText(ctx,"Figure 10.", 10, 350, 18);
 
     drawText(ctx,"A",pos[6].x, pos[6].y, pos[6].myFont,  pos[6].colour);
     drawText(ctx,"B",pos[7].x, pos[7].y, pos[7].myFont, pos[7].colour);
     drawCircle(ctx, x, y, 2, "red", true);
+
     drawArrow(ctx, 50, 180, x-5, 180, black);
     drawArrow(ctx, 315, 180, x+5, 180, black);
+ 
+    if(!moving) return
+   
+    if(direction === "A"){
+        x += 1;
+        pos[7].myFont += 1;
+         if(pos[7].myFont >= 120){
+             moving = false;
+            toggleButton(fig10t);
+         }
+    }
+   
+    if(direction === "T"){
+        x -= 1;
+        pos[7].myFont -= 1;
+        if(pos[7].myFont <=24 ){
+            moving = false;
+            toggleButton(fig10a);
+        }
+    }
+   
+    if(moving) requestAnimationFrame(figureTen);
+
 }
 
 function figureEleven(moving) {
@@ -853,14 +875,6 @@ function figureFifteen(energy){
     drawArrow(ctx, 315, 180, x+5, 180, black);
 }
 
-function figureFifteenEnergy() {
-    const from = this.id;
-    if(from === "f15a") {
-        figureFifteen(4);
-    }else if(from === "f15s") {
-        figureFifteen(-4);
-    }
-}
 
 function figureSixteen(moving) {
     const ctx = fig16ctx;
@@ -1050,19 +1064,16 @@ function toggleDiagram() {
         figureNine(true);
     }
 
-    if (from === 'f9a') {
+    if (from === 'f10a') {
         direction = "A";
-        figureNine(true);
+        figureTen(true);
     }
-     if (from === 'f14t') {
+     if (from === 'f10t') {
         direction = "T";
-        figureFourteen(true);
+        figureTen(true);
      }
 
-    if (from === 'f16a') {
-        direction = "A";
-        figureSixteen(true);
-    }
+     
     if (from === 'f16t') {
         direction = "T";
         figureSixteen(true);
@@ -1087,6 +1098,8 @@ function toggleDiagram() {
         direction = "T";
         figureEighteen(true);
     }
+
+    
 }
 
     function toggleButton(b) {
