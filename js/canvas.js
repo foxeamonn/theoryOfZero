@@ -1,31 +1,9 @@
-let xpos=0;
-let ypos=0;
-let originMoved = false;
 
 
-// colours
-const black='0,0,0';
-const blue='0,0,255';
-const lightBlue='100,255,255';
-const green='0,128,0';
-const lime='102,255,153';
-const red='255,0,0';
-const lightRed='255,83,26';
-const yellow='255,255,0';
-const cyan='204,255,255';
-const purple='102,0,102';
-const white='255,255,255';
-const lightGreen = '204,255,204';
-rgbColours=[0,0,0];
-const font8 = '8px serif';
-const font12='12px serif';
-const font14='14px serif';
-const font10='10px serif';
-
-
-function drawLine(ctx,stX,stY,endX,endY,colour = black, thickness = 1){
+export function drawLine(ctx,stX,stY,endX,endY,colour = "black", thickness = 1, dash = false){
 		 //console.log(stX+" "+stY+" "+endX+" "+endY.toString())
 		 ctx.lineWidth=thickness;
+         dash ===  true ? ctx.setLineDash([2, 3]) : ctx.setLineDash([]);
 		 ctx.beginPath();
 		 ctx.moveTo(stX,stY);
 		 ctx.lineTo(endX,endY);
@@ -34,8 +12,7 @@ function drawLine(ctx,stX,stY,endX,endY,colour = black, thickness = 1){
 		 ctx.closePath();
 }
 
-
-function drawLineOrig(ctx,x,y,colour,quad,thickness){
+export function drawLineOrig(ctx,x,y,colour,quad,thickness){
     if(!colour) colour=black;  // black
     if(!thickness) thickness=1;
     ctx.lineWidth=thickness;
@@ -43,44 +20,44 @@ function drawLineOrig(ctx,x,y,colour,quad,thickness){
     ctx.moveTo(x,y);
     ctx.lineTo(0,0);
     //ctx.moveTo(0,0);
-    ctx.strokeStyle=rgbString(colour);
+    ctx.strokeStyle=colour;
     ctx.stroke();
     ctx.closePath();
 }
 
 
-function drawVertical(ctx,x,y,colour = black ){
+export function drawVertical(ctx,x,y,colour = "black" ){
 		 ctx.lineWidth=1;
 		 ctx.beginPath();
 		 ctx.moveTo(x,y);
 		 ctx.lineTo(x,0);
-		 ctx.strokeStyle=rgbString(colour);
+		 ctx.strokeStyle=colour;
 		 ctx.closePath();
          ctx.stroke();
 }
 
 
-function drawHorizontal(ctx,y,x,colour){
+export function drawHorizontal(ctx,y,x,colour="black"){
     if(!colour) colour=black;
 
     ctx.lineWidth=1;
     ctx.beginPath();
     ctx.moveTo(x,y);
     ctx.lineTo(y,0);
-    ctx.strokeStyle=rgbString(colour);
+    ctx.strokeStyle=colour;
     ctx.stroke();
     ctx.closePath();
 }
 
 
 
-function drawClock(ctx, clockRadius) {
+export function drawClock(ctx, clockRadius) {
     drawFace(ctx, clockRadius);
     drawNumbers(ctx, clockRadius);
     drawTime(ctx, clockRadius);
 }
 
-function drawFace(ctx, radius) {
+export function drawFace(ctx, radius) {
     ctx.beginPath();
     ctx.arc(0, 0, radius, 0, 2 * Math.PI);
     ctx.fillStyle = "white";
@@ -96,7 +73,7 @@ function drawFace(ctx, radius) {
     ctx.fill();
 }
 
-function drawNumbers(ctx, radius) {
+export function drawNumbers(ctx, radius) {
     let angle;
     let num;
     ctx.font = radius * 0.15 + "px arial";
@@ -114,7 +91,7 @@ function drawNumbers(ctx, radius) {
     }
 }
 
-function drawTime(ctx, radius) {
+export function drawTime(ctx, radius) {
     const now = new Date();
     let hour = now.getHours();
     let minute = now.getMinutes();
@@ -134,7 +111,7 @@ function drawTime(ctx, radius) {
     drawHand(ctx, second, radius * 0.9, radius * 0.02, "red");
 }
 
-function drawHand(ctx, pos, length, width, color = "#333") {
+export function drawHand(ctx, pos, length, width, color = "#333") {
     ctx.beginPath();
     ctx.lineWidth = width;
     ctx.lineCap = "round";
@@ -146,21 +123,24 @@ function drawHand(ctx, pos, length, width, color = "#333") {
     ctx.rotate(-pos);
 }
 
-function updateClock(ctx, radius) {
+export function updateClock(ctx, radius) {
     ctx.clearRect(-radius, -radius, fig11.width, fig11.height);
     drawClock(ctx, radius);
 }
 
-function drawLineAtAngle(ctx, length, angle = 0,  x = 0, y = 0, colour = black, width = 1){
+export function drawLineAtAngle(ctx, length, angle = 0,  x = 0, y = 0, colour = "black", width = 1){
     // angle is in radians
     const endx = x + (Math.cos(angle) * length);
     const endy = y + (Math.sin(angle) * length);
     drawLine(ctx, x, y, endx, endy, colour, width);
 }
 
+export function drawKeVPe(ctx){
+    
 
-function drawDiag(ctx,deg,length,quad,colour){
-		 if(!colour) colour=black;
+}
+
+export function drawDiag(ctx,deg,length,quad,colour = "blue"){
 		 if(!quad) quad=2;
 		 if(quad === 2) deg=deg+270;
 		 if(quad === 3) deg+=180;
@@ -177,7 +157,7 @@ function drawDiag(ctx,deg,length,quad,colour){
 }
 
 
-function drawText(ctx, message, xpos = 0, ypos = 0, myFont, colour = "black"){
+export  function drawText(ctx, message, xpos = 0, ypos = 0, myFont, colour = "black"){
 
 	if(!myFont) ctx.font="20px Arial";
     if(myFont){
@@ -189,7 +169,7 @@ function drawText(ctx, message, xpos = 0, ypos = 0, myFont, colour = "black"){
 }
 
 
-function drawTriangle(ctx, x1, y1, x2, y2, x3, y3, fill, colour="black", angle = 0){
+export function drawTriangle(ctx, x1, y1, x2, y2, x3, y3, fill, colour="black", angle = 0){
     // angle is  to the polar axis
 
     //ctx.strokeStyle=rgbString(colour);
@@ -201,20 +181,39 @@ function drawTriangle(ctx, x1, y1, x2, y2, x3, y3, fill, colour="black", angle =
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.lineTo(x3, y3);
-    ctx.closePath();
-
+     ctx.closePath();
     if(fill) {ctx.fillStyle=ctx.strokeStyle; ctx.fill()};
     ctx.stroke();
     ctx.rotate(-angle);
+    
 }
 
-function drawBodyTriangle(ctx, body){
+export function DrawTriangleObj(ctx, triangle){
+    const colour = triangle.colour;
+    const x1 = triangle.x1;
+    const y1 = triangle.y1;
+    const x2 = triangle.x2;
+    const y2 = triangle.y2;
+    const x3 = triangle.x3;
+    const y3 = triangle.y3;
+   
+
+    drawLine(ctx, x1,y1,x2,y2,"blue", 1);
+    drawLine(ctx, x2, y1, x3, y3,"green",1);
+    drawLine(ctx, x1,y1,x3,y3,"black",1,true);
+    drawCircle(ctx,x2,y2,2,colour);
+    colour === "blue" ?  drawText(ctx, "A", x2-15, y2, 15, colour) :  drawText(ctx, "B", x2+5, y2, 15, colour);
+  
+}
+
+export function drawBodyTriangle(ctx, body){
     const diag=ctx.canvas.id
     const base = body.base;
     const height = body.height;
     const colour = body.colour;
     const fill = body.fill;
     const direction = body.direction;
+    const angle = body.angle;
 
     const x1 = 0;
     const y1 = 0;
@@ -254,7 +253,7 @@ function drawBodyTriangle(ctx, body){
 
 }
 
-function drawTriangleBH(ctx, x, y, b, h, axis = "A", colour = black) {
+export function drawTriangleBH(ctx, x, y, b, h, axis = "A", colour = black) {
     // A = above axis, B = below
     const x1 = x;
     const y1 = y;
@@ -277,7 +276,7 @@ function drawTriangleBH(ctx, x, y, b, h, axis = "A", colour = black) {
     }
     drawTriangle(ctx, x1, y1, x2, y2, x3, y3, false, colour);
 }
-function drawObject(ctx, x, y, radius, text, font, colour) {
+export function drawObject(ctx, x, y, radius, text, font, colour) {
     if(!colour) colour=black;
     if(!font) font=20;
     drawCircle(ctx, x,y,radius,colour,true);
@@ -288,21 +287,12 @@ function drawObject(ctx, x, y, radius, text, font, colour) {
 }
 
 
-function drawArc(ctx,radius,angle,colour){
-		if(!colour) colour=black;
-		ctx.beginPath();
-		ctx.arc(0,0,radius,0,angle);
-		ctx.strokeStyle=rgbString(colour);
-
-		ctx.closePath();
-        ctx.stroke();
-}
-function drawCircleO(ctx,o) {   // draw circle using an object
+export function drawCircleO(ctx,o) {   // draw circle using an object
     drawCircle(ctx, o.x, o.y, o.radius, o.colour);
 }
 
 
-function drawCircle(ctx,x = 0, y = 0, radius=1, colour = "black", fill = true){
+export function drawCircle(ctx,x = 0, y = 0, radius=1, colour = "black", fill = true){
     const angle=Math.PI*2;
     ctx.beginPath();
     ctx.strokeStyle = colour;
@@ -312,7 +302,7 @@ function drawCircle(ctx,x = 0, y = 0, radius=1, colour = "black", fill = true){
     ctx.stroke();
 }
 
-function drawArc(ctx, x=0, y=0, radius, startAngle = 0, endAngle=0, counter = false, colour="black", fill=false ) {
+export function drawArc(ctx, x=0, y=0, radius, startAngle = 0, endAngle=0, counter = false, colour="black", fill=false ) {
     ctx.beginPath();
     ctx.strokeStyle=colour;
     if(fill){ctx.fillStyle=colour;ctx.fill()}
@@ -321,7 +311,7 @@ function drawArc(ctx, x=0, y=0, radius, startAngle = 0, endAngle=0, counter = fa
     ctx.stroke();
 }
 
-function drawSection(ctx,radius,angle,colour){
+export function drawSection(ctx,radius,angle,colour){
 		ctx.beginPath();
 		ctx.arc(0,0,radius,0,angle);
 		ctx.strokeStyle=rgbString(colour);
@@ -331,7 +321,7 @@ function drawSection(ctx,radius,angle,colour){
 		ctx.closePath();
 }
 
-function drawGrid(diag, gap = 10 , colour = lightBlue, quad = false){
+export function drawGrid(diag, gap = 10 , colour = lightBlue, quad = false){
     ctx = diag.getContext("2d");
 
     if(quad){
@@ -358,7 +348,7 @@ function drawGrid(diag, gap = 10 , colour = lightBlue, quad = false){
 
 }
 
-function drawBox(ctx, x = 0, y = 0,  w, h, fill = false, colour = "black",  lineWidth = 1)
+export function drawBox(ctx, x = 0, y = 0,  w, h, fill = false, colour = "black",  lineWidth = 1)
 {
     ctx.lineWidth = lineWidth;
     if(fill){
@@ -375,7 +365,7 @@ function drawBox(ctx, x = 0, y = 0,  w, h, fill = false, colour = "black",  line
 
 }
 
-function drawBody(ctx, body, mp = true) {
+export function drawBody(ctx, body, mp = true) {
 
     let x = body.x;
     let y = body.y;
@@ -390,12 +380,12 @@ function drawBody(ctx, body, mp = true) {
 }
 
 // draw box from object
-function drawBoxO(ctx, o) {
+export function drawBoxO(ctx, o) {
 
     drawBox(ctx, o.x, o.y, o.base, o.height, o.fill, o.colour, o.quad);
 }
 
-function drawBodyO(ctx, body = bodies[0]){
+export function drawBodyO(ctx, body = bodies[0]){
 
     const quad = body.quad;
     const area = body.area;
@@ -415,14 +405,14 @@ function drawBodyO(ctx, body = bodies[0]){
 }
 
 
-function drawShape(x1=0, y1=0, x2=0, y2=0, x3=0, x4=0, colour=black){
+export function drawShape(x1=0, y1=0, x2=0, y2=0, x3=0, x4=0, colour=black){
 
 }
 
-function completeClear(ctx){
+export function completeClear(ctx){
     ctx.clearRect(-780, -780, 780, 780);
 }
-function drawRectangle(ctx, rectangle) {
+export function drawRectangle(ctx, rectangle) {
     const x1 = rectangle.x1;
     const y1 = rectangle.y1;
     const x2 = rectangle.x2;
@@ -448,7 +438,7 @@ function drawRectangle(ctx, rectangle) {
 
 }
 
-function eraseBox(ctx, h, w, x, y){
+export function eraseBox(ctx, h, w, x, y){
     if (!x) x = 0;
     if(!y) y = 0;
     ctx.beginPath();
@@ -458,50 +448,36 @@ function eraseBox(ctx, h, w, x, y){
 }
 
 
-function moveOrigin(ctx,x,y){
+export function moveOrigin(ctx,x,y){
 		 ctx.translate(x,y);
 		 //myOrigins.push(new coOrds(x,y));
 }
 
-function moveToCentre(diag, number = 0){
-    if(diagramCentered[number]) return;
+export function moveToCentre(diag){
+    if(diag.centered) return;
     const x= diag.width/2;
     const y = diag.height/2;
-
     let ctx = diag.getContext('2d');
     ctx.translate(x, y);
-    diagramCentered[number] = true;
 }
 
-function moveToZero(diag, number = 0){
-    if(!diagramCentered[number]) return;
+export function moveToZero(diag){
+    if(!diag.centered) return;
     const x= diag.width/2;
     const y = diag.height/2;
     let ctx = diag.getContext('2d');
     ctx.translate(-x,-y);
-    diagramCentered[number] = false;
 
 }
 
-function moveSquares(ctx,across=1,down=1) { // moves from the origin
+export function moveSquares(ctx,across=1,down=1) { // moves from the origin
     ctx.moveTo(centreX,centreY);
     let byx=across*square;
     let byy=down*square;
     ctx.moveTo(byx,byy);
 }
 
-function rgbString(c){
-		 const clr=c.split(",");
-		 const r=clr[0];
-		 const g=clr[1];
-		 const b=clr[2];
-		 rgbColours[0]=r;
-		 rgbColours[1]=g;
-		 rgbColours[2]=b;
-		 return "rgb("+r+","+g+","+b+")";
-}
-
-function drawGradient(ctx,stx,sty,endx,endy,colour){
+export function drawGradient(ctx,stx,sty,endx,endy,colour){
 		 let grd = ctx.createLinearGradient(0,0,200,0);
 		 grd.addColorStop(0,"red");
 		 grd.addColorStop(1,"white");
@@ -513,40 +489,23 @@ function drawGradient(ctx,stx,sty,endx,endy,colour){
 
 
 
-function drawLineLength(ctx, x, y, length, colour, move){
-    if(!x) x = 0;
-    if(!y) y = 0;
-    if(!move) move = 0;
-    if(!colour) colour = blue;
+export function drawLineLength(ctx, x=0, y=0, length, colour="black", move = false){
     drawLine(ctx, x, y, x+length, y, colour);
     if(move) penToCartesian(ctx, x+length, y);
-    myLength = length;
-    xPos = x;
-    yPos = y;
-}
-
-function eraseLineLength(ctx, x, y, length){
-    if(!x ) x = xPos;
-    if(!y) y = yPos;
-    if(!length) length = myLength;
-    drawLine(ctx, x, y, x+length, y, myBackground);
-    const xPos = x;
-    const yPos = y;
-    const myLength = length;console.log(xPos);
 }
 
 
-function penToCentre(ctx) {
+export function penToCentre(ctx) {
     ctx.translate(centreX, centreY);
 }
 
 
-function penToCartesian(ctx, x, y){
+export function penToCartesian(ctx, x, y){
     ctx.translate(x, y);
 }
 
 
-function penToPolar(ctx, radius, angle) {
+export function penToPolar(ctx, radius, angle) {
     const x = radius * Math.cos(angle);
     const y = radius * Math.sin(angle);
 
@@ -554,7 +513,7 @@ function penToPolar(ctx, radius, angle) {
 }
 
 
-function drawPolar(ctx, length, angle = 0, colour =black, move = false, thickness = 1){
+export function drawPolar(ctx, length, angle = 0, colour =black, move = false, thickness = 1){
 
     console.log(angle);
     let x = length * Math.cos(angle);
@@ -574,7 +533,7 @@ function drawPolar(ctx, length, angle = 0, colour =black, move = false, thicknes
     //console.log(Math.sin(angle));
 }
 
-function testTriangle(ctx){
+export function testTriangle(ctx){
     ctx.setTransform(1,0,0,1,0,0);
     let angleInRadians =135 * Math.PI / 180;
     ctx.rotate(angleInRadians);
@@ -582,11 +541,11 @@ function testTriangle(ctx){
     ctx.fillRect(100,100 , 50, 50);
 }
 
-function rotate(ctx, angle){
+export function rotate(ctx, angle){
     ctx.rotate(angle);
 }
 
-function bodyCoOrdinates(body){
+export function bodyCoOrdinates(body){
     const angle= body.angle;
     const d = body.distance;
     const theata = radToDeg(angle);
@@ -601,29 +560,28 @@ function bodyCoOrdinates(body){
 
 }
 
-function degToRad(angle){
+export function degToRad(angle){
     return (angle*Math.PI)/180;
 }
 
-function radToDeg(rad){
+export function radToDeg(rad){
     return (180*rad)/Math.PI
 }
 
-function rotation_radians(r) {      // r is number of radians
+export function rotation_radians(r) {      // r is number of radians
     const angle = r % (2 * Math.PI);
     return angle;
 }
 
-function rotation_degrees(a) {
+export function rotation_degrees(a) {
     const angle = a % 360;
     return angle;
 }
 
-function drawArrowTriangle(ctx, x, y, base, height, direction, colour, angle){
+export function drawArrowTriangle(ctx, x, y, base, height, direction, colour = "black", angle){
     let endX=0, endY=0
     if(!height) height=base;
     if(!direction) direction="R";
-    if(!colour) colour=black;
     if(!angle) angle=0;
     rotate(ctx, angle);
     if(direction === "R"){
@@ -647,7 +605,7 @@ function drawArrowTriangle(ctx, x, y, base, height, direction, colour, angle){
     rotate(ctx, -angle);
 }
 
-function drawArrow(ctx, fromX, fromY, toX, toY, colour, thickness, arrowWidth) {
+export function drawArrow(ctx, fromX, fromY, toX, toY, colour ="black", thickness, arrowWidth) {
     let headlen = 6;
     const dx = toX - fromX;
     const dy = toY - fromY;
@@ -657,8 +615,8 @@ function drawArrow(ctx, fromX, fromY, toX, toY, colour, thickness, arrowWidth) {
     if(arrowWidth) headlen=arrowWidth;
 
     // Set the arrow style
-    ctx.strokeStyle = rgbString(colour);
-    ctx.fillStyle = rgbString(colour);
+    ctx.strokeStyle = colour;
+    ctx.fillStyle = colour;
     ctx.lineWidth = thickness;
 
     ctx.beginPath();
@@ -676,7 +634,7 @@ function drawArrow(ctx, fromX, fromY, toX, toY, colour, thickness, arrowWidth) {
     ctx.fill();
 }
 
-function simpleArrow(ctx, stx, sty, len, direction,colour) {
+export function simpleArrow(ctx, stx, sty, len, direction,colour="black") {
     let x=stx; let y=sty;
     if(direction === "U") y=sty-len;
     if(direction === "D") y=sty+len;
@@ -686,17 +644,17 @@ function simpleArrow(ctx, stx, sty, len, direction,colour) {
     drawArrow(ctx, stx, sty, x, y, colour)
 }
 
-function clearCanvas(c){
+export function clearCanvas(c){
     let height = c.height;
     let width = c.width;
     let ctx = c.getContext('2d');
-    clearArea(ctx, width, height);
+    clearArea(ctx, 0, 0, width, height);
 }
-function clearArea(ctx, w, h){
-    ctx.clearRect(0, 0, w, h);
+export function clearArea(ctx, x=0, y=0, w, h){
+    ctx.clearRect(x, y, w, h);
 }
 
-function getCentre(c){
+export function getCentre(c){
     centreX = c.width / 2;
     centreY = c.height / 2;
 }

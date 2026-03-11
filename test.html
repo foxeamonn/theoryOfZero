@@ -6,11 +6,14 @@
     <title>test</title>
 </head>
 
+ <script src="js/test.js" defer type="module"></script>
 <body>
 
-
+<a href="index.html">Main</a>
+<br><br>
 
 <script>
+   
 
 function calcWork()
 {
@@ -34,7 +37,7 @@ function calcWork()
 
     
 </script>
-
+<!-- 
 <div id ="work">
     <input type = number placeholder="Effort force (N)" id = "effortForce" value="50">N<br>
     <input type = number placeholder="Effort arm (m)" id = "effortArm" value="1">m<br>
@@ -42,10 +45,50 @@ function calcWork()
    
     <button onclick="calcWork()">Calculate</button>
 </div>
+-->
+
 <br>
 <div id = "show">
   
 </div>
+<script>
+    let htmlCode = "<table border=1><th>p.e</th><th>k.e</th><th>gradient (k)</th><th>Gradient(f)</th><th>angle</th>";
+   
+    
+    let pe = 1;
+    let ke = 1;
+    let gradientk = 1;
+    let gradientf = 1;
+    let theata = Math.atan(ke/pe);
+    const area = 1;
+
+    do{
+        ke = area / pe;
+        ke = ke.toFixed(4);
+       
+        gradientk = (ke / pe) *-1;
+        gradientk = gradientk.toFixed(4);
+        gradientf = (1/Math.pow(pe, 2))*-1;
+        gradientf = gradientf.toFixed(4);
+        theata = Math.atan(ke/pe);
+        theata = theata.toFixed(4);
+        htmlCode += `
+        <tr>
+            <td>${pe}</td>
+            <td>${ke}</td>
+            <td>${gradientk}</td>
+            <td>${gradientf}</td>
+            <td>${theata}</td>
+        </tr>
+        ` 
+       
+        pe += 1;
+
+    }while (pe <= 10)
+     htmlCode += "</table>";
+     document.getElementById("show").innerHTML = htmlCode;
+</script>
+ 
 
 </body>
 </html>

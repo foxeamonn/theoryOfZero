@@ -103,12 +103,16 @@ fig10t.addEventListener('click', toggleDiagram);
 toggleButton(fig10t);
 
 
-/*
+
 // ** fig 11 buttons
 const fig11 = document.getElementById('figure11')
 const fig11ctx=fig11.getContext('2d');
 const fig11a = document.getElementById("f11a");
 fig11a.addEventListener('click', toggleDiagram);
+const fig11t=document.getElementById('f11t')
+fig11t.addEventListener('click', toggleDiagram);
+toggleButton(fig11t);
+
 
 // ** fig 12
 const fig12 = document.getElementById('figure12')
@@ -174,7 +178,7 @@ fig18a.addEventListener('click', toggleDiagram);
 const fig18t = document.getElementById("f18t");
 fig18t.addEventListener('click', toggleDiagram);
 
-*/
+
 let index9 = 0;
 let index10 = 4;
 let index11 = 0;
@@ -261,6 +265,7 @@ figureSeven(false);
 figureEight(false);
 figureNine(false);
 figureTen(false);
+figureEleven(false);
 /*
 figureFive();
 figureSix();
@@ -435,7 +440,7 @@ function figureTwo() {
 
 function figureThree() {
     const ctx = fig3ctx;
-     showCoord(fig3);
+    
     ctx.clearRect(0, 0, width, height);
     drawText(ctx,"With no mechanism to transmit,", 10, 20, 16,"black");
     drawText(ctx,"the force becomes potential energy. ", 10, 40, 16,"black");
@@ -732,7 +737,8 @@ function figureTen(moving = false) {
     let energy = 4;
     const ctx = fig10ctx;
    
-    drawText(ctx,"The barycentre changes with B accelerating.",5,20,16);
+    drawText(ctx,"The barycentre changes with B accelerating",5,20,16);
+    drawText(ctx,"(changing energy levels).", 5,36,16);
     drawText(ctx,"Figure 10.", 10, 350, 18);
 
     drawText(ctx,"A",pos[6].x, pos[6].y, pos[6].myFont,  pos[6].colour);
@@ -766,71 +772,43 @@ function figureTen(moving = false) {
 
 }
 
-function figureEleven(moving) {
+function figureEleven(moving = false) {
     const ctx = fig11ctx;
     moveToZero(fig11, 11);
     clearCanvas(fig11);
-    drawText(ctx,"The work done by the bodies is the same;",5,20,16);
-    drawText(ctx,"the distance of the mass point from the barycentre is proportional",5,40,16);
-    drawText(ctx, "is proportional to their masses", 5, 60, 16);
-
-    drawCircle(ctx,240,300,2,"blue",true);
-    drawText(ctx," = mass point.", 245, 305, 12,"blue");
-
-    drawCircle(ctx,240,315,2,"green",true);
-    drawText(ctx," = mass point.", 245, 320, 12,"green");
-
-    drawCircle(ctx,240,330,2,"red",true);
-    drawText(ctx,"  = barycentre.", 240, 335, 12,"red");
-
-    drawBox(ctx, 237, 342, 5, 5, true, "blue");
-    drawText(ctx,"  = work done.", 240, 348, 12,"blue");
-
-    drawBox(ctx, 237, 352, 5, 5, true, "green");
-    drawText(ctx,"= work done.", 247, 358, 12,"green");
-
+    drawText(ctx,"The position of the barycentre of A and B has",5,20,16);
+    drawText(ctx,"changed. ",5,36,16);
     drawText(ctx,"Figure 11.", 10, 350, 18);
-
-    polarAxis(fig11);
-    moveToCentre(fig11, 11);
-
-    drawBodyO(ctx, bodies[0]);
-    drawBodyO(ctx, bodies[1]);
-
-    bodies[0].width += .8;
-    bodies[0].height = bodies[0].area / bodies[0].width;
-    bodies[1].width += 1;
-    bodies[1].height = bodies[1].area / bodies[1].width;
-
+    drawCircle(ctx, 180, 180, 2, "red", true);
+    drawText(ctx,"A",pos[8].x, pos[8].y, pos[8].myFont,  pos[8].colour);
+    drawText(ctx,"B",pos[9].x, pos[9].y,pos[9].myFont, pos[9].colour);
     if(!moving) return;
-    if(bodies[0].width > 130){
-        toggleButton(fig11a);
-        moving = false;
+
+    if(direction === "A") {
+        // pos.8 = "A"
+        // pos.9 = "B"
+        pos[8].x = pos[8].x - 1;
+        pos[9].x = pos[9].x + .5;
+        if (pos[8].x <= initPos[0].x ) {moving = false; toggleButton(fig11t)}
     }
+    else if(direction === "T") {
+        pos[8].x = pos[8].x + 1;
+        pos[9].x = pos[9].x - .5;
+        if (pos[8].x >= initPos[4].x) {
+            moving = false;
+            toggleButton(fig11a)
+        }
 
     if(moving) requestAnimationFrame(figureEleven);
-
+    
 }
+
 
 function figureTwelve(moving) {
     const ctx = fig12ctx;
     clearCanvas(fig12);
 
-    drawText(ctx,"The Perspective of observer A;",5,20,16);
-    drawText(ctx,"Figure 12.", 10, 350, 18);
-    drawText(ctx,"A",pos[0].x,pos[0].y,24,  pos[0].colour);
-    drawText(ctx,"B",pos[1].x,pos[1].y,24, pos[1].colour);
-
-    if(!moving) return;
-    if(direction === "A") {
-        pos[1].x = pos[1].x + 1;
-        if (pos[1].x >= initPos[3].x ) {moving = false; toggleButton(fig12t)}
-    }
-    else if(direction === "T") {
-        pos[1].x = pos[1].x - 1;
-        if (pos[1].x <= initPos[1].x ) {moving = false; toggleButton(fig12a)}
-    }
-
+        
     if (moving) requestAnimationFrame(figureTwelve);
 }
 
@@ -849,30 +827,6 @@ function figureFourteen(moving) {
     clearCanvas(fig14);
     //showCoord(fig14, false);
    
-}
-
-function figureFifteen(energy){
-    const ctx = fig15ctx;
-    clearCanvas(fig15);
-    //showCoord(fig15, false);
-    drawText(ctx,"The barycentre changes with B accelerating.",5,20,16);
-    drawText(ctx,"Figure 15.", 10, 350, 18);
-
-    if(energy > 0 && pos[7].myFont <= 48) {
-        pos[7].myFont += energy;
-        x += energy;
-    }
-
-    if(energy < 0 && pos[7].myFont >= 20) {
-        pos[7].myFont += energy;
-        x += energy;
-    }
-
-    drawText(ctx,"A",pos[6].x, pos[6].y, pos[6].myFont,  pos[6].colour);
-    drawText(ctx,"B",pos[7].x, pos[7].y, pos[7].myFont, pos[7].colour);
-    drawCircle(ctx, x, y, 2, "red", true);
-    drawArrow(ctx, 50, 180, x-5, 180, black);
-    drawArrow(ctx, 315, 180, x+5, 180, black);
 }
 
 
@@ -1006,6 +960,7 @@ function polarAxis(diag, barycentre = true, colour="red"){
     centreX = width / 2;
     drawLine(ctx, 0, centreY, width, centreY, colour)
     if(barycentre) drawCircle(ctx, centreX, centreY, 3, colour); 
+
 }
 
 
@@ -1016,47 +971,29 @@ function toggleDiagram() {
 
     //console.log(from);
 
-    if (from === 'f4a') {
-        direction = "A";
-        figureFour(true);
-    }
-
-    if (from === 'f4t') {
-        direction = "T";
-        figureFour(true);
-    }
-
-    if (from === 'f5a') {
-        direction = "A";
-        figureFive(true)
-    }
-
-    if (from === 'f5t') {
-        direction = "T";
-        figureFive(true);
-    }
-
-    if (from === 'f6s') {
-        figureSix(true);
-    }
-
-    if (from === 'f7t') {
-        direction = "T"
-        figureSeven(true);
-    }
-
     if (from === 'f7a') {
         direction = "A";
         figureSeven(true);
+    }
+
+    if (from === 'f7t') {
+        direction = "T";
+        figureSeven(true);
+    }
+
+    if (from === 'f8a') {
+        direction = "A";
+        figureEight(true);
     }
 
     if (from === 'f8t') {
         direction = "T";
         figureEight(true);
     }
-    if (from === 'f8a') {
-       direction = "A";
-        figureEight(true);
+
+    if (from === 'f9a') {
+        direction = "A";
+        figureNine(true)
     }
 
     if (from === 'f9t') {
@@ -1064,16 +1001,48 @@ function toggleDiagram() {
         figureNine(true);
     }
 
-    if (from === 'f10a') {
+    if (from === 'f11a') {
         direction = "A";
-        figureTen(true);
+        figureEleven(true);
     }
-     if (from === 'f10t') {
+
+    if (from === 'f11t') {
+        direction = "T"
+        figureEleven(true);
+    }
+
+    if (from === 'f12a') {
+        direction = "A";
+        figureTwelve(true);
+    }
+
+    if (from === 'f12t') {
         direction = "T";
-        figureTen(true);
+        figureTwelve(true);
+    }
+    if (from === 'f13a') {
+       direction = "A";
+        figureThirteen(true);
+    }
+
+    if (from === 'f13t') {
+        direction = "T";
+        figureThirteen(true);
+    }
+
+    if (from === 'f14a') {
+        direction = "A";
+        figureFourteen(true);
+    }
+     if (from === 'f14t') {
+        direction = "T";
+        figureFourteen(true);
      }
 
-     
+    if (from === 'f16a') {
+        direction = "A";
+        figureSixteen(true);
+    }
     if (from === 'f16t') {
         direction = "T";
         figureSixteen(true);
@@ -1098,10 +1067,8 @@ function toggleDiagram() {
         direction = "T";
         figureEighteen(true);
     }
-
-    
 }
-
+    
     function toggleButton(b) {
         b.disabled ? b.className = "w3-green w3-padding" : b.className = "w3-gray w3-padding";
         b.disabled = !b.disabled;
@@ -1188,5 +1155,6 @@ function toggleDiagram() {
 
         //console.log(quad);
         //console.log(bodies[seq]);
+    }
 
 }
