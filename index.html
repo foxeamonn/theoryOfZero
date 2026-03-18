@@ -24,9 +24,12 @@
     <h1>Theory of zero - an energy based description of motion.</h1>
 </div>
 
+<div class="w3-bar w3-light-grey">
+    <a href="#" class="w3-bar-item w3-button">Home</a>
+    <a href="zero.html" class="w3-bar-item w3-button">Theory of zero</a>
+    <a href="test.html" class="w3-bar-item w3-button">Test</a>
+  </div>
 
-
-<a href="test.html">test</a>
  <hr>
 
 
@@ -35,56 +38,75 @@
         <p>
             <h1>Introducing Point zero.</h2>
             In any system of forces, there will be one point where the force acting will be zero. The point most people will be familiar with 
-            is the fulcrum of a lever. For an body or object, this will be it's centre of mass, and for two bodies in motion relative to 
-            each other is their barycentre.
+            is the fulcrum of a lever. For an body or object, this will be it's centre of mass, and for two bodies
+            not in contact with each other, this will be their barycentre.
 
         </p>
     <!-- start of section -->
    <p>
     <h2>The law of the lever.</h2>
-        A lever is in equilibrium when the moment of the force on one side equals the moment of the 
-        force on the other side, i.e. force x distance on one side of the fulcrum equals force x distance
-        on the other. The simple table below shows this relationship.
-        <br><br>
+    "Give me a lever and a place to stand, and I shall move the world".
+    Thus spake Archimedes. What he was talking about of course, was the relationship 
+    between force and distance, which is a universal constant; let's call it G for 
+    tradition's sake. The greater the distance from the fulcrum, the more magnified the 
+    input force becomes, and the less the output force is. Regardless of the applied force, the gradient
+    (output force / input force) will follow an inverse square law.
+    The table below shows examples of the relationship between force and distance for a lever in balance.
+    <br><br>
+
+    
         <table class="w3-table-all">
             <tr>
-            <th>Force A (N)</th>
-            <th>Distance A (m)</th>
-            <th>Force B (N)</th>
-            <th>Distance B (m)</th>
+                <th>Applied Force (N)</th>
+                <th>Distance A (m)</th>
+                <th>Input force (N)</th>
+                <th>Distance O (m)</th>
+                <th>Ouput force</th>
+                <th>Gradient</th>
+            
+            </tr>
+
+            <tr>
+                <td>50</td>
+                <td>1</td>
+                <td>50</td>
+                <td>1</td>
+                <td>50</td>
+                <td>1</td>
+            </tr>
+
+            <tr>
+                <td>50</td>
+                <td>2</td>
+                <td>100</td>
+                <td>4</td>
+                <td>25</td>
+                <td>.25</td>
+            </tr>
+
+            <tr>
+                <td>50</td>
+                <td>3</td>
+                <td>150</td>
+                <td>9</td>
+                <td>16.66</td>
+                <td>.111</td>
+            </tr>
+
+        <tr>
+            <td>50</td>
+            <td>4</td>
+            <td>200</td>
+            <td>16</td>
+            <td>12.5</td>
+            <td>.0625</td>
         </tr>
-    <tr>
-      <td>50</td>
-      <td>1</td>
-      <td>100</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <td>50</td>
-      <td>2</td>
-      <td>100</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>50</td>
-      <td>3</td>
-      <td>100</td>
-      <td>1.5</td>
-    </tr>
-    <tr>
-      <td>50</td>
-      <td>4</td>
-      <td>100</td>
-      <td>2</td>
-    </tr>
+   
   </table>
     <br>
-    The consistancy of the relationship between force and distance implies there must be a universal constant 
-    governing the realationship between the two. This is G, the universal constant with a value
-    of 6.7x10<sup>-11</sup> m. Figure 1 below is a simple diagram of a lever in balance. Figure 2 shows that
+    Figure 1 below is a simple diagram of a lever in balance. Figure 2 shows that
     the applied force always acts at right angles to the fulcrum regardless of the angle of the lever to the 
     horizontal.<br><br>
-
     
     <!-- individual diagram -->
     <div class="w3-cell w3-padding">
@@ -101,17 +123,19 @@
 
     
     
-        <h2>Applied force as potential energy.</h2>
+        <h2>Applied force as potential energy, output force as kinetic energy.</h2>
         <p>
         In the previous examples, the lever connected the effort and load output forces. But what if there was no lever?
         In that case force could not be transferred, and so it will exist as in <i>potential</i> form only.
-        Consider a man digging a hole with a spade. He will need to apply a certain force to move the dirt.
-        If he puts the spade down he won't be able to dig of course, so his energy becomes potential. When he takes
-        the spade up again, he will have to apply the same force as before to move the dirt - the ratio of applied force
-        to input force is the same regardless of whether there is a mechanism to transmit it or not.
+        Consider a man digging a hole. The longer the handle of the spade, the force he will need to apply
+        will be less, but the distance the dirt moves will be less - as per the law of the lever.
+        If he puts down the spade he won't be able to dig of course, so his energy becomes potential. 
+        When he takes the spade up again, he will have to apply the same force as before to move the dirt - the ratio of
+        applied force to output force is the same regardless of whether there is a mechanism to transmit it or not.
+        This fct can be used to calculate the distance between points. As the dirt moves, it has kinetic energy, so 
+        kinetic energy can be considered analagous to output force.
         <!--
-        If the man uses a longer handled spade, then the force he will have to apply will be less, but the amount
-        of dirt he can move will be less also. Again, the ratio of applied force to input/output will depend on the
+       Again, the ratio of applied force to input/output will depend on the
         distance between the two, thus distance can be described as this ratio.
         -->    
         </p>
@@ -127,10 +151,11 @@
     <h2>Inertial motion and conservation of energy.</h2>
         As shown in the previous diagram, if there is no pyhsical connection between two bodies, then the forces 
         become <i>potential</i> energy. When a force moves along a lever (and is kept the same),
-        the ratio of applied force to input force changes - but the nett force at the fulcrum remains zero.
+        the ratio of applied force to output force changes - but the nett force at the fulcrum remains zero.
         The same principle applies to energy; as the distance from point zero changes, both a body's 
-        potential and kinetic energies change. As the distance it is from point zero increases, its'
-        potential energy increases, but for energy to be conserved, its' kinetic energy must decrease.
+        potential and kinetic energies change. The total energy a body has consists of both kinetic and potential energy.
+        As the distance it is from point zero increases, its' potential energy increases, and kinetic decreases.
+        At all times %p.e + %k.e = 1. The instantaeneous rate of change can be given by the formula k.e/p.e or 1/p.e<sup>2</sup>.
         Thus inertial motion can be described as the change in a body's energy <i>profile</i>.
         <br>
 
@@ -145,21 +170,13 @@
             </div>
         </div>
     <!-- end here for canvas -->
-        <!-- start here for new canvas -->
-        <div class="w3-cell w3-padding">
-            <div class="w3-cell w3-padding">
-                <canvas id="figure5" width="560" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                Your browser does not support HTML 5
-                </canvas><br>
-                <button class="w3-green w3-padding" id="f5a">AWAY</button>
-                <button class="w3-green w3-padding" id="f5t">TOWARDS</button>
-            </div>
-        </div>
-    <!-- end here for canvas -->
 
-        <h2>Inertial motion, mass, distance and energy.</h2>
+    
+
+        <h2>Mass, distance and energy.</h2>
         For a body in inertial motion, its' energy profile changes. The amount of change 
-        over a given distance will depend on the mass of the body. The general formula for energy change is
+        over a given distance will depend on the mass of the body. mass as potential energy? 
+         The general formula for energy change is
         &Delta;energy = (Universal constant) * mass / distance
          or in shorthand &Delta;e = GM/d. So the mass of a body (m) an be given by the formula m = &Delta;e / (G*d)
          and the distance (d) from the barycentre as d = (G * m) / &Delta;e. Figure 6 shows two bodies moving away 
