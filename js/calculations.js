@@ -14,3 +14,18 @@ export function coOrds(length, angle){
 export function degToRad(){}
 
 export function radToDeg(){}
+
+export function getAngleFromArea(area, radius, inDegrees = false) {
+    if (radius <= 0) {
+        throw new Error("Radius must be greater than zero.");
+    }
+
+    const angleRadians = (2 * area) / (radius * radius);
+
+    if (inDegrees) {
+        const angleDegrees = angleRadians * (180 / Math.PI);
+        return angleDegrees;
+    }
+
+    return angleRadians;
+}

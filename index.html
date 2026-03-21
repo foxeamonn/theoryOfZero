@@ -47,8 +47,8 @@
     <h2>The law of the lever.</h2>
     "Give me a lever and a place to stand, and I shall move the world".
     Thus spake Archimedes. What he was talking about of course, was the relationship 
-    between force and distance, which is a universal constant; let's call it G for 
-    tradition's sake. The greater the distance from the fulcrum, the more magnified the 
+    between force and distance. 
+    The greater the distance of the applied force from the fulcrum, the more magnified the 
     input force becomes, and the less the output force is. Regardless of the applied force, the gradient
     (output force / input force) will follow an inverse square law.
     The table below shows examples of the relationship between force and distance for a lever in balance.
@@ -63,7 +63,6 @@
                 <th>Distance O (m)</th>
                 <th>Ouput force</th>
                 <th>Gradient</th>
-            
             </tr>
 
             <tr>
@@ -93,15 +92,14 @@
                 <td>.111</td>
             </tr>
 
-        <tr>
-            <td>50</td>
-            <td>4</td>
-            <td>200</td>
-            <td>16</td>
-            <td>12.5</td>
-            <td>.0625</td>
-        </tr>
-   
+            <tr>
+                <td>50</td>
+                <td>4</td>
+                <td>200</td>
+                <td>16</td>
+                <td>12.5</td>
+                <td>.0625</td>
+            </tr>
   </table>
     <br>
     Figure 1 below is a simple diagram of a lever in balance. Figure 2 shows that
@@ -122,7 +120,6 @@
     </p>
 
     
-    
         <h2>Applied force as potential energy, output force as kinetic energy.</h2>
         <p>
         In the previous examples, the lever connected the effort and load output forces. But what if there was no lever?
@@ -132,7 +129,7 @@
         If he puts down the spade he won't be able to dig of course, so his energy becomes potential. 
         When he takes the spade up again, he will have to apply the same force as before to move the dirt - the ratio of
         applied force to output force is the same regardless of whether there is a mechanism to transmit it or not.
-        This fct can be used to calculate the distance between points. As the dirt moves, it has kinetic energy, so 
+        This fact can be used to calculate the distance between points. As the dirt moves, it has kinetic energy, so 
         kinetic energy can be considered analagous to output force.
         <!--
        Again, the ratio of applied force to input/output will depend on the
@@ -155,7 +152,8 @@
         The same principle applies to energy; as the distance from point zero changes, both a body's 
         potential and kinetic energies change. The total energy a body has consists of both kinetic and potential energy.
         As the distance it is from point zero increases, its' potential energy increases, and kinetic decreases.
-        At all times %p.e + %k.e = 1. The instantaeneous rate of change can be given by the formula k.e/p.e or 1/p.e<sup>2</sup>.
+        At all times %p.e + %k.e = 1. The instantaeneous rate of change (Gradient) can be given by the formula
+         k.e/p.e or 1/p.e<sup>2</sup>.
         Thus inertial motion can be described as the change in a body's energy <i>profile</i>.
         <br>
 
@@ -169,43 +167,49 @@
                 <button class="w3-green w3-padding" id="f4t">TOWARDS</button>
             </div>
         </div>
-    <!-- end here for canvas -->
-
-    
+    <!-- end here for canvas -->    
 
         <h2>Mass, distance and energy.</h2>
-        For a body in inertial motion, its' energy profile changes. The amount of change 
-        over a given distance will depend on the mass of the body. mass as potential energy? 
-         The general formula for energy change is
-        &Delta;energy = (Universal constant) * mass / distance
-         or in shorthand &Delta;e = GM/d. So the mass of a body (m) an be given by the formula m = &Delta;e / (G*d)
-         and the distance (d) from the barycentre as d = (G * m) / &Delta;e. Figure 6 shows two bodies moving away 
-         from their barycentre. As G is a constant, it can be factored out giving the familiar m1*d1=m2*d2 formula.
-
-        <!-- start here for new canvas -->
-        <div class="w3-cell w3-padding">
-            <div class="w3-cell w3-padding">
-                <canvas id="figure6" width="560" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                Your browser does not support HTML 5
-                </canvas><br>
-                <button class="w3-green w3-padding" id="f6s">START</button>
-            </div>
-        </div>
-    <!-- end here for canvas -->
+        As stated earlier, the instantaeneous rate of change of energy (&Delta;e) will be 1/p.e<sup>2</sup>.
+        The p.e of a body is going to depend on its' mass; so the greater the mass of a body, the greater the p.e of a 
+        body at a given distance. The formula m1*d1=m2*d2 shows this; the greater the mass of a body, the less distance 
+        it will travel from the barycentre to keep the system balanced. So distance can be described as the ratio of
+        p.e to k.e. 
+        As the nett energy of the system must remain
+        constant (zero), then &Delta;e / mass must also be a constant; let's call it G for traditions sake. 
 
         <h2>Frames of reference.</h2>
         <p>
         The standard way of creating a frame of reference is to consider an observer to be
-        stationary relative to a body they are observing moving. This is impossible,
-        of course; any real observer will be moving relative to the body they are observing.
-        To an observer in their own frame of reference, the origin of the co-ordinate system is their own centre of mass.
-        In actual reality, the origin of the co-ordinate system is the barycentre of the observer and the mass point of
-        the body they are observing (any real observer has to have mass, and thus can never be at the barycentre of
-        themselves and the body they are observing moving). In figure 14, the movement away from the barycentre represents
+        stationary relative to a body they are observing moving. This is impossible of course;
+        any real observer will be moving relative to the body they are observing. Furthermore, 
+        it is impossible for only one body in a system to be in motion. This implies that <i>all</i>
+        bodies in a system (and consequently all bodies in existance) have both kinetic and
+        potential energy. As seen earlier, the percentages will depend on distance from 
+        the barycentre. <br>
+        To an observer in a standard frame of reference, the origin of the co-ordinate system is their own centre of mass.
+        But because two bodies are moving the origin of the co-ordinate system is the barycentre of the observer
+        and the mass point the body being observed. In figure 14, the movement away from the barycentre represents
         an action/reaction event; movement towards represents a collision. At all times, the nett work done is zero at the
         barycentre.
         </p>
         <!-- start here for new canvas -->
+            <div class="w3-cell w3-padding">
+                <canvas id="figure5" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+                Your browser does not support HTML 5
+                </canvas><br>
+               <button class="w3-green w3-padding" id="f5a">AWAY</button>
+               <button class="w3-green w3-padding" id="f5t">TOWARDS</button>
+            </div>
+
+            <div class="w3-cell w3-padding">
+                <canvas id="figure6" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+                Your browser does not support HTML 5
+                </canvas><br>
+               <button class="w3-green w3-padding" id="f6a">AWAY</button>
+                <button class="w3-green w3-padding" id="f6t">TOWARDS</button>
+            </div>
+               
             <div class="w3-cell w3-padding">
                 <canvas id="figure7" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
                 Your browser does not support HTML 5
@@ -214,39 +218,23 @@
                 <button class="w3-green w3-padding" id="f7t">TOWARDS</button>
             </div>
 
-            <div class="w3-cell w3-padding">
-                <canvas id="figure8" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                Your browser does not support HTML 5
-                </canvas><br>
-               <button class="w3-green w3-padding" id="f8a">AWAY</button>
-                <button class="w3-green w3-padding" id="f8t">TOWARDS</button>
-            </div>
-               
-            <div class="w3-cell w3-padding">
-                <canvas id="figure9" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                Your browser does not support HTML 5
-                </canvas><br>
-               <button class="w3-green w3-padding" id="f9a">AWAY</button>
-                <button class="w3-green w3-padding" id="f9t">TOWARDS</button>
-            </div>
-
             <ul>
         <li>
-            Figure 7 shows the perspective of observer A; as far as he is concerned, he is stationary and it is body (observer)
+            Figure 5 shows the perspective of observer A; as far as he is concerned, he is stationary and it is body (observer)
             B that is moving.
         </li>
         <li>
-            Figure 8 shows the perspective of observer B; as far as he is concerned, he is stationary and it is body (observer) A
+            Figure 6 shows the perspective of observer B; as far as he is concerned, he is stationary and it is body (observer) A
             that is moving.
         </li>
         <li>
-            Figure 9 shows what actually happens when two bodies move relative to each other. They move with velocities relative
+            Figure 7 shows what actually happens when two bodies move relative to each other. They move with velocities relative
             to their barycentre in such a way that the nett work done is zero at the barycentre remains zero.
         </li>
 
         <li>
-            In figure 9 the movement away from the barycentre represents an action/reaction event; movement towards represents a collision.
-            At all times, the nett work done is zero.
+            In figure 7 the movement away from the barycentre represents an action/reaction event; movement towards represents a collision.
+            At all times, the nett work done at the barycentre is zero.
         </li>
 
         </ul>
@@ -267,19 +255,19 @@
         <br>
            
             <div class="w3-cell w3-padding">
-                <canvas id="figure10" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+                <canvas id="figure8" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
                 Your browser does not support HTML 5
                 </canvas><br>
-               <button class="w3-green w3-padding" id="f10a">INCREASE</button>
-                <button class="w3-green w3-padding" id="f10t">DECREASE</button>
+               <button class="w3-green w3-padding" id="f8a">INCREASE</button>
+                <button class="w3-green w3-padding" id="f8t">DECREASE</button>
             </div>
 
             <div class="w3-cell w3-padding">
-                <canvas id="figure11" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+                <canvas id="figure9" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
                 Your browser does not support HTML 5
                 </canvas><br>
-               <button class="w3-green w3-padding" id="f11a">AWAY</button>
-                <button class="w3-green w3-padding" id="f11t">TOWARDS</button>
+               <button class="w3-green w3-padding" id="f9a">AWAY</button>
+                <button class="w3-green w3-padding" id="f9t">TOWARDS</button>
             </div>
 
         <h2>Formulae</h2>
