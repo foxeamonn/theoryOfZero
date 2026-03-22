@@ -13,6 +13,7 @@
     <meta name="theme-color" content="#fafafa">
     <!-- script -->
 
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="js/app.js" defer type="module"></script>
     
 
@@ -152,8 +153,8 @@
         The same principle applies to energy; as the distance from point zero changes, both a body's 
         potential and kinetic energies change. The total energy a body has consists of both kinetic and potential energy.
         As the distance it is from point zero increases, its' potential energy increases, and kinetic decreases.
-        At all times %p.e + %k.e = 1. The instantaeneous rate of change (Gradient) can be given by the formula
-         k.e/p.e or 1/p.e<sup>2</sup>.
+        At all times %p.e + %k.e = 1. The instantaeneous rate of change can be given by the formula
+        &nabla;e=k.e/p.e or &nabla;e=1/p.e<sup>2</sup>.
         Thus inertial motion can be described as the change in a body's energy <i>profile</i>.
         <br>
 
@@ -170,13 +171,14 @@
     <!-- end here for canvas -->    
 
         <h2>Mass, distance and energy.</h2>
-        As stated earlier, the instantaeneous rate of change of energy (&Delta;e) will be 1/p.e<sup>2</sup>.
-        The p.e of a body is going to depend on its' mass; so the greater the mass of a body, the greater the p.e of a 
-        body at a given distance. The formula m1*d1=m2*d2 shows this; the greater the mass of a body, the less distance 
-        it will travel from the barycentre to keep the system balanced. So distance can be described as the ratio of
-        p.e to k.e. 
-        As the nett energy of the system must remain
-        constant (zero), then &Delta;e / mass must also be a constant; let's call it G for traditions sake. 
+        In simple terms, the potential energy of a body is its' mass times its' distance from a given point at a 
+        given instance in time. The given point this essay is using for a moving body is its' barycentre
+        with a body it is moving relative to. So at any given instance in time, pe1=pe2 or 
+        m1.d1=m2.d2 where m1 and m2 are the masses of the respective bodies, and d1 and d2 their distances from the 
+        barycentre. This means that the greater the mass of a body, the greater its' potential energy at a given 
+        distance. This in turn means that &nabla;e is greater for bodies of greater mass (at a given distance). 
+        As the nett energy of the system must remain constant (zero), then &nabla;e / mass must also be a constant;
+        let's call it G for traditions sake. 
 
         <h2>Frames of reference.</h2>
         <p>
@@ -273,14 +275,15 @@
         <h2>Formulae</h2>
    <ul>
     <li>&Delta;e = G.m/d</li>
-    <li>d = G.m/&Delta;e</li>
+    <li>d = G.m/&nabla;e</li>
     <li>m = d.G/&Delta;e</li>
     <li>e = p.e+k.e</li>
     <li>p.e = cos<sup>2</sup>&theta;</li>
     <li>k.e = sin<sup>2</sup>&theta;</li>
     <li>gradient = -1/p.e<sup>2</sup></li>
    </ul>     
-   gradient as instantaeneous rate of change 
+   gradient as instantaeneous rate of change
+   \( \frac{d}{dt} \)
     </div>
 
  

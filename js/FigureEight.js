@@ -29,6 +29,9 @@ export function show(moving = false) {
     drawText(ctx,"B", 315, 180, bFont, "green");
     drawCircle(ctx, x, y, 2, "red", true);
 
+    drawText(ctx,"  = barycentre.", 240, 348, 14,"red");
+    drawCircle(ctx,240, 343, 2, "red", true);
+
     drawArrow(ctx, 50, 180, x-5, 180, "black");
     drawArrow(ctx, 315, 180, x+5, 180, "black");
     if(!moving) return;
