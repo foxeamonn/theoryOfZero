@@ -7,6 +7,7 @@ import { show as showSix } from "./FigureSix.js";
 import { show as showSeven } from "./FigureSeven.js";
 import { show as showEight } from "./FigureEight.js";
 import { show as showNine } from "./FigureNine.js";
+import { show as showTen } from "./FigureTen.js";
 
 // draw diagrams
 showOne();
@@ -18,3 +19,4 @@ showSix();
 showSeven();
 showEight();
 showNine();
+showTen();

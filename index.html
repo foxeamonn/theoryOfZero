@@ -46,7 +46,7 @@
     <!-- start of section -->
    <p>
     <h2>The law of the lever.</h2>
-    "Give me a lever and a place to stand, and I shall move the world".
+    "Give me a lever long enough and a place to stand, and I shall move the world".
     Thus spake Archimedes. What he was talking about of course, was the relationship 
     between force and distance. 
     The greater the distance of the applied force from the fulcrum, the more magnified the 
@@ -121,22 +121,16 @@
     </p>
 
     
-        <h2>Applied force as potential energy, output force as kinetic energy.</h2>
+        <h2>Applied force as potential energy.</h2>
         <p>
-        In the previous examples, the lever connected the effort and load output forces. But what if there was no lever?
-        In that case force could not be transferred, and so it will exist as in <i>potential</i> form only.
-        Consider a man digging a hole. The longer the handle of the spade, the force he will need to apply
-        will be less, but the distance the dirt moves will be less - as per the law of the lever.
-        If he puts down the spade he won't be able to dig of course, so his energy becomes potential. 
-        When he takes the spade up again, he will have to apply the same force as before to move the dirt - the ratio of
-        applied force to output force is the same regardless of whether there is a mechanism to transmit it or not.
-        This fact can be used to calculate the distance between points. As the dirt moves, it has kinetic energy, so 
-        kinetic energy can be considered analagous to output force.
-        <!--
-       Again, the ratio of applied force to input/output will depend on the
-        distance between the two, thus distance can be described as this ratio.
-        -->    
+            In the previous examples, the lever connected the effort and load output forces. But what if there was no lever?
+            In that case force could not be transferred, and so it will exist as in <i>potential</i> form only.
+            As energy is the ability to do work, the applied force can be considered <i>input</i> energy and the input 
+            force <i>potential</i> energy. The relationship follows the same rule as forces; input energy (i.e) * 
+            distance = potential energy (p.e).
         </p>
+        
+
              
   
         <div class="w3-cell w3-padding">
@@ -144,18 +138,65 @@
                 Your browser does not support HTML 5
             </canvas><br> 
         </div>
-       
+
+        <p>
+            The table below shows the relationship between input energies and potential energies for bodies A and B.
+            The gradient follows the same inverse square rule.
+        </p>
+
+        <table class="w3-table-all">
+            <tr>
+                <th>Input energy A (J)</th>
+                <th>Distance A (m)</th>
+                <th>Potential energy (J)</th>
+                <th>Distance B<Bq></Bq> (m)</th>
+                <th>Input energy B</th>
+                <th>Gradient</th>
+            </tr>
+
+            <tr>
+                <td>50</td>
+                <td>1</td>
+                <td>50</td>
+                <td>1</td>
+                <td>50</td>
+                <td>1</td>
+            </tr>
+
+            <tr>
+                <td>50</td>
+                <td>2</td>
+                <td>100</td>
+                <td>4</td>
+                <td>25</td>
+                <td>.25</td>
+            </tr>
+
+            <tr>
+                <td>50</td>
+                <td>3</td>
+                <td>150</td>
+                <td>9</td>
+                <td>16.66</td>
+                <td>.111</td>
+            </tr>
+
+            <tr>
+                <td>50</td>
+                <td>4</td>
+                <td>200</td>
+                <td>16</td>
+                <td>12.5</td>
+                <td>.0625</td>
+            </tr>
+  </table>
    
     <h2>Inertial motion and conservation of energy.</h2>
-        As shown in the previous diagram, if there is no pyhsical connection between two bodies, then the forces 
-        become <i>potential</i> energy. When a force moves along a lever (and is kept the same),
-        the ratio of applied force to output force changes - but the nett force at the fulcrum remains zero.
-        The same principle applies to energy; as the distance from point zero changes, both a body's 
-        potential and kinetic energies change. The total energy a body has consists of both kinetic and potential energy.
-        As the distance it is from point zero increases, its' potential energy increases, and kinetic decreases.
-        At all times %p.e + %k.e = 1. The instantaeneous rate of change can be given by the formula
-        &nabla;e=k.e/p.e or &nabla;e=1/p.e<sup>2</sup>.
-        Thus inertial motion can be described as the change in a body's energy <i>profile</i>.
+        When a constant force moves along a lever the ratio of applied force to input force changes. 
+        If potential energy is to be considered analagous, then as a body moves relative to point zero  
+        its' potential energy changes which means that the input energy must change also - or else potential 
+        energy could be come infinite. Inertial motion can be described as the change in a bodies' potential
+        energy, or the change in the ratio of input energy to potential energy.
         <br>
 
         <!-- start here for new canvas -->
@@ -169,16 +210,7 @@
             </div>
         </div>
     <!-- end here for canvas -->    
-
-        <h2>Mass, distance and energy.</h2>
-        In simple terms, the potential energy of a body is its' mass times its' distance from a given point at a 
-        given instance in time. The given point this essay is using for a moving body is its' barycentre
-        with a body it is moving relative to. So at any given instance in time, pe1=pe2 or 
-        m1.d1=m2.d2 where m1 and m2 are the masses of the respective bodies, and d1 and d2 their distances from the 
-        barycentre. This means that the greater the mass of a body, the greater its' potential energy at a given 
-        distance. This in turn means that &nabla;e is greater for bodies of greater mass (at a given distance). 
-        As the nett energy of the system must remain constant (zero), then &nabla;e / mass must also be a constant;
-        let's call it G for traditions sake. 
+       
 
         <h2>Frames of reference.</h2>
         <p>
@@ -269,8 +301,47 @@
                 Your browser does not support HTML 5
                 </canvas><br>
                <button class="w3-green w3-padding" id="f9a">AWAY</button>
-                <button class="w3-green w3-padding" id="f9t">TOWARDS</button>
+               <button class="w3-green w3-padding" id="f9t">TOWARDS</button>
             </div>
+
+            <h2>Mass, distance and energy.</h2>
+                When two bodies move relative to each other, the input force/potential energy change, but these energies
+                continue to cancel each other out at point zero. Figure 7 shows an action/ reaction event; the distance each 
+                body is from their barycentre will depend on their mass. At all times, mass body one * distance body one - 
+                mass body two * distance body two = 0 (m1d1-m2d2 = 0). As the potential energies of the two bodies are the same,
+                then the mass of a body is the change in its' potential energy over a given distance, (&Delta;p.e)/d.
+                This implies that the <I>instantaeneous</I> rate of change of change of energy must be a constant that 
+                is independent of the mass of the body. For the sake of tradition, I will call this constant G. 
+                So G = &nabla;p.e.
+                <br>
+                <div class="w3-cell w3-padding">
+                <canvas id="figure10" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+                    Your browser does not support HTML 5
+                </canvas><br>
+               <button class="w3-green w3-padding" id="f10a">AWAY</button>
+               <button class="w3-green w3-padding" id="f10t">TOWARDS</button>
+            </div>
+
+
+
+            <h2>Mapping to a co-ordinate system.</h2>
+                Any co-ordinate needs an origin point, and the obvious point to use in a two-body system is point zero.
+                The position of the mass point of each body in the system can be given by its' mass and distance from 
+                point zero. In a polar co-ordinate system, the position of a body is given by its distance and angle 
+                from the pole - point zero. The applied force always acts at a right angle to the input force; 
+                but the nett force remains the same. As the angle the force acts at remains the same, but the distance 
+                changes then the angle to point zero changes. When angle and distance change simultaenously, that is 
+                a spiral.
+            <br>
+            <div class="w3-cell w3-padding">
+                <canvas id="figure11" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+                    Your browser does not support HTML 5
+                </canvas><br>
+               <button class="w3-green w3-padding" id="f11a">AWAY</button>
+               <button class="w3-green w3-padding" id="f11t">TOWARDS</button>
+            </div>
+
+
 
         <h2>Formulae</h2>
    <ul>

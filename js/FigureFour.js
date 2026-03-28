@@ -34,8 +34,8 @@ export function show(moving = false) {
    
     clearCanvas(diagram);
 
-    drawText(ctx,"As the distance between two bodies changes, the ratio of ",10,16,16);
-    drawText(ctx,"potential energy to kinetic energy changes inversely with distance from ",10,35,16);
+    drawText(ctx,"As the distance between two moving bodies changes,  ",10,16,16);
+    drawText(ctx,"input energy and potential energy changes inversely with distance from ",10,35,16);
     drawText(ctx,"the barycentre. ",10,52,16);
 
     DrawTriangleObj(ctx, triangleOne);
@@ -58,10 +58,10 @@ export function show(moving = false) {
     drawText(ctx,"= mass point A.", 450, 320, 12,"blue");
 
     drawText(ctx,"-", 440, 335, 12, "green");
-    drawText(ctx, "= kinetic energy",450, 335, 12, "green");
+    drawText(ctx, "= input energy",450, 335, 12, "green");
 
     drawText(ctx,"-", 440, 350, 12, "blue");
-    drawText(ctx, "= potential energy",450, 350, 12, "blue");
+    drawText(ctx, "= distance (p.e)",450, 350, 12, "blue");
 
     if(!moving) return;
     // motion

@@ -659,3 +659,13 @@ export function getCentre(c){
     centreY = c.height / 2;
 }
 
+
+export function polarAxis(diag, barycentre = true, colour="red"){
+    const ctx = diag.getContext('2d');
+    const width = diag.width;
+    const centreY = diag.height / 2;
+    const centreX = width / 2;
+    drawLine(ctx, 0, centreY, width, centreY, colour)
+    if(barycentre) drawCircle(ctx, centreX, centreY, 3, colour); 
+
+}
