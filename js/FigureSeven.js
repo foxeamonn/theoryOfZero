@@ -1,4 +1,6 @@
 
+// note: this is actually figure 5
+
 // imported function
 import { drawText, clearCanvas, drawCircle } from "./canvas.js";
 import { DisableButton, EnableButton } from "./utilities.js";
@@ -23,12 +25,13 @@ let xb = centreX +5;
 export function show(moving = false) {
     clearCanvas(diagram);
     drawText(ctx,"The true state - both observers are moving.", 10, 20, 16);
+    drawText(ctx,"relative to their barycentre.", 10, 36, 16);
     drawText(ctx,"A", xa, 180, 24, "blue");
     drawText(ctx,"B",xb, 180, 24, "green");
     drawCircle(ctx,centreX, centreY, 2, "red", true);
     drawText(ctx,"  = barycentre.", 240, 348, 14,"red");
     drawCircle(ctx,240, 343, 2, "red", true);
-    drawText(ctx,"Figure 7.", 10, 350, 18);
+    drawText(ctx,"Figure 5.", 10, 350, 18);
 
     if(!moving) return;
     if(direction === "A") {

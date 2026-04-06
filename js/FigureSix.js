@@ -1,3 +1,4 @@
+// note: this is actually figure 4
 
 // imported functions
 import { drawText, clearCanvas, drawCircle } from "./canvas.js";
@@ -24,7 +25,7 @@ export function show(moving = false) {
     drawCircle(ctx, 308, 176, 2, "red", true);
     drawCircle(ctx,240, 343, 2, "red", true);
     drawText(ctx,"  = mass point B.", 240, 348, 14,"red");
-    drawText(ctx,"Figure 6.", 10, 350, 18);
+    drawText(ctx,"Figure 4.", 10, 350, 18);
 
     if(!moving) return;
     if(direction === "A") {

@@ -13,7 +13,7 @@
     <meta name="theme-color" content="#fafafa">
     <!-- script -->
 
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
     <script src="js/app.js" defer type="module"></script>
     
 
@@ -40,7 +40,8 @@
             <h1>Introducing Point zero.</h2>
             In any system of forces, there will be one point where the force acting will be zero. The point most people will be familiar with 
             is the fulcrum of a lever. For an body or object, this will be it's centre of mass, and for two bodies
-            not in contact with each other, this will be their barycentre.
+            not in contact with each other, this will be their barycentre. I will use the  terms interchangeably
+            throughout this essay.
 
         </p>
     <!-- start of section -->
@@ -50,8 +51,9 @@
     Thus spake Archimedes. What he was talking about of course, was the relationship 
     between force and distance. 
     The greater the distance of the applied force from the fulcrum, the more magnified the 
-    input force becomes, and the less the output force is. Regardless of the applied force, the gradient
-    (output force / input force) will follow an inverse square law.
+    input force becomes, and the less the output force is. This implies there must be a universal constant 
+    linking force and distance. For the sake of tradition I call call this constant G. 
+    Regardless of the force applied, the gradient (output force / input force) will follow an inverse square law.
     The table below shows examples of the relationship between force and distance for a lever in balance.
     <br><br>
 
@@ -103,6 +105,57 @@
             </tr>
   </table>
     <br>
+    Of course, the designation of what is an input force and what is an output force is purely an arbritrary decision;
+    in reality, two forces exist, and they cancel each other out at the fulcrum. Again, what is a negative 
+    or what is a positive force is purely an arbritrary decision.
+    <br><br>
+    <table class="w3-table-all">
+            <tr>
+                <th>Applied Force A (N)</th>
+                <th>Distance A (m)</th>
+                <th>Input force A (N)</th>
+                <th>Input Force B (N)</th>
+                <th>Distance B (m)</th>
+                <th>Applied force B (N)</th>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>20</td>
+                <td>100</td>
+                <td>-100</td>
+                <td>10</td>
+                <td>-10</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>25</td>
+                <td>100</td>
+                <td>-100</td>
+                <td>8</td>
+                <td>-12.5</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>33.33</td>
+                <td>100</td>
+                <td>-100</td>
+                <td>6</td>
+                <td>-16.66</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>50</td>
+                <td>100</td>
+                <td>-100</td>
+                <td>4</td>
+                <td>-25</td>
+            </tr>
+  </table>
+  <br>
     Figure 1 below is a simple diagram of a lever in balance. Figure 2 shows that
     the applied force always acts at right angles to the fulcrum regardless of the angle of the lever to the 
     horizontal.<br><br>
@@ -120,246 +173,42 @@
         </div>
     </p>
 
-    
-        <h2>Applied force as potential energy.</h2>
-        <p>
-            In the previous examples, the lever connected the effort and load output forces. But what if there was no lever?
-            In that case force could not be transferred, and so it will exist as in <i>potential</i> form only.
-            As energy is the ability to do work, the applied force can be considered <i>input</i> energy and the input 
-            force <i>potential</i> energy. The relationship follows the same rule as forces; input energy (i.e) * 
-            distance = potential energy (p.e).
-        </p>
-        
+    <h2>Relative motion.</h2>
+    <p>
+      If all motion is relative, what is a body moving relative to? The answer is that a body is moving relative to 
+      all other bodies it does not share a common centre of mass with. As shown earlier, the ratio of applied force 
+      to input force depends on distance. As  motion is a change in distance, then motion can be described as 
+      the change in ratio of applied to input forces. Although the ratio changes, the nett force remains zero at the 
+      fulcrum (barycentre) if the bodies are not in contact with each other. To an observer however, it is always the 
+      other body who is moving and they will consider themselves to be at rest. In actual reality, both observers are 
+      moving as it is not possible to have only one body moving in a system.
+      <br>
 
-             
-  
-        <div class="w3-cell w3-padding">
-            <canvas id="figure3" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                Your browser does not support HTML 5
-            </canvas><br> 
-        </div>
-
-        <p>
-            The table below shows the relationship between input energies and potential energies for bodies A and B.
-            The gradient follows the same inverse square rule.
-        </p>
-
-        <table class="w3-table-all">
-            <tr>
-                <th>Input energy A (J)</th>
-                <th>Distance A (m)</th>
-                <th>Potential energy (J)</th>
-                <th>Distance B<Bq></Bq> (m)</th>
-                <th>Input energy B</th>
-                <th>Gradient</th>
-            </tr>
-
-            <tr>
-                <td>50</td>
-                <td>1</td>
-                <td>50</td>
-                <td>1</td>
-                <td>50</td>
-                <td>1</td>
-            </tr>
-
-            <tr>
-                <td>50</td>
-                <td>2</td>
-                <td>100</td>
-                <td>4</td>
-                <td>25</td>
-                <td>.25</td>
-            </tr>
-
-            <tr>
-                <td>50</td>
-                <td>3</td>
-                <td>150</td>
-                <td>9</td>
-                <td>16.66</td>
-                <td>.111</td>
-            </tr>
-
-            <tr>
-                <td>50</td>
-                <td>4</td>
-                <td>200</td>
-                <td>16</td>
-                <td>12.5</td>
-                <td>.0625</td>
-            </tr>
-  </table>
-   
-    <h2>Inertial motion and conservation of energy.</h2>
-        When a constant force moves along a lever the ratio of applied force to input force changes. 
-        If potential energy is to be considered analagous, then as a body moves relative to point zero  
-        its' potential energy changes which means that the input energy must change also - or else potential 
-        energy could be come infinite. Inertial motion can be described as the change in a bodies' potential
-        energy, or the change in the ratio of input energy to potential energy.
-        <br>
-
-        <!-- start here for new canvas -->
-        <div class="w3-cell w3-padding">
-            <div class="w3-cell w3-padding">
-                <canvas id="figure4" width="560" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                Your browser does not support HTML 5
-                </canvas><br>
-                <button class="w3-green w3-padding" id="f4a">AWAY</button>
-                <button class="w3-green w3-padding" id="f4t">TOWARDS</button>
-            </div>
-        </div>
-    <!-- end here for canvas -->    
-       
-
-        <h2>Frames of reference.</h2>
-        <p>
-        The standard way of creating a frame of reference is to consider an observer to be
-        stationary relative to a body they are observing moving. This is impossible of course;
-        any real observer will be moving relative to the body they are observing. Furthermore, 
-        it is impossible for only one body in a system to be in motion. This implies that <i>all</i>
-        bodies in a system (and consequently all bodies in existance) have both kinetic and
-        potential energy. As seen earlier, the percentages will depend on distance from 
-        the barycentre. <br>
-        To an observer in a standard frame of reference, the origin of the co-ordinate system is their own centre of mass.
-        But because two bodies are moving the origin of the co-ordinate system is the barycentre of the observer
-        and the mass point the body being observed. In figure 14, the movement away from the barycentre represents
-        an action/reaction event; movement towards represents a collision. At all times, the nett work done is zero at the
-        barycentre.
-        </p>
-        <!-- start here for new canvas -->
-            <div class="w3-cell w3-padding">
+         <div class="w3-cell w3-padding">
                 <canvas id="figure5" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
                 Your browser does not support HTML 5
                 </canvas><br>
                <button class="w3-green w3-padding" id="f5a">AWAY</button>
                <button class="w3-green w3-padding" id="f5t">TOWARDS</button>
-            </div>
+        </div>
 
-            <div class="w3-cell w3-padding">
-                <canvas id="figure6" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+        <div class="w3-cell w3-padding">
+            <canvas id="figure6" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
                 Your browser does not support HTML 5
-                </canvas><br>
-               <button class="w3-green w3-padding" id="f6a">AWAY</button>
-                <button class="w3-green w3-padding" id="f6t">TOWARDS</button>
-            </div>
-               
-            <div class="w3-cell w3-padding">
+            </canvas><br>
+           <button class="w3-green w3-padding" id="f6a">AWAY</button>
+           <button class="w3-green w3-padding" id="f6t">TOWARDS</button>
+        </div>
+
+        <div class="w3-cell w3-padding">
                 <canvas id="figure7" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
                 Your browser does not support HTML 5
                 </canvas><br>
                <button class="w3-green w3-padding" id="f7a">AWAY</button>
                 <button class="w3-green w3-padding" id="f7t">TOWARDS</button>
             </div>
-
-            <ul>
-        <li>
-            Figure 5 shows the perspective of observer A; as far as he is concerned, he is stationary and it is body (observer)
-            B that is moving.
-        </li>
-        <li>
-            Figure 6 shows the perspective of observer B; as far as he is concerned, he is stationary and it is body (observer) A
-            that is moving.
-        </li>
-        <li>
-            Figure 7 shows what actually happens when two bodies move relative to each other. They move with velocities relative
-            to their barycentre in such a way that the nett work done is zero at the barycentre remains zero.
-        </li>
-
-        <li>
-            In figure 7 the movement away from the barycentre represents an action/reaction event; movement towards represents a collision.
-            At all times, the nett work done at the barycentre is zero.
-        </li>
-
-        </ul>
-
-
-      <h2>Acceleration.</h2>
-       When a body accelerates, its energy levels are changing (which is why it can be detected).
-        This change in a body's energy changes the position of
-        its barycentre with other bodies, and thus the point which it is moving relative to. The example below focuses
-        on the change in the position of the barycentre between body A and B when body B accelerates.
-        When body B's energy levels increase, the barycentre moves closer to body B. This
-        increases the distance travelled by body A. When body B's energy levels decrease, the barycentre moves closer to
-        body A.
-        Neither observer is aware of the change in the position of the barycentre, but observer B will feel the acceleration
-        as his energy levels change, whereas observer A's do not. After Body B has finished accelerating,
-        the barycentre will again be stationary, and inertial motion will resume relative to it. The energy level of body B
-        has changed so the amount of work it does over a given distance (its mass) will also have changed.
-        <br>
-           
-            <div class="w3-cell w3-padding">
-                <canvas id="figure8" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                Your browser does not support HTML 5
-                </canvas><br>
-               <button class="w3-green w3-padding" id="f8a">INCREASE</button>
-                <button class="w3-green w3-padding" id="f8t">DECREASE</button>
-            </div>
-
-            <div class="w3-cell w3-padding">
-                <canvas id="figure9" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                Your browser does not support HTML 5
-                </canvas><br>
-               <button class="w3-green w3-padding" id="f9a">AWAY</button>
-               <button class="w3-green w3-padding" id="f9t">TOWARDS</button>
-            </div>
-
-            <h2>Mass, distance and energy.</h2>
-                When two bodies move relative to each other, the input force/potential energy change, but these energies
-                continue to cancel each other out at point zero. Figure 7 shows an action/ reaction event; the distance each 
-                body is from their barycentre will depend on their mass. At all times, mass body one * distance body one - 
-                mass body two * distance body two = 0 (m1d1-m2d2 = 0). As the potential energies of the two bodies are the same,
-                then the mass of a body is the change in its' potential energy over a given distance, (&Delta;p.e)/d.
-                This implies that the <I>instantaeneous</I> rate of change of change of energy must be a constant that 
-                is independent of the mass of the body. For the sake of tradition, I will call this constant G. 
-                So G = &nabla;p.e.
-                <br>
-                <div class="w3-cell w3-padding">
-                <canvas id="figure10" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                    Your browser does not support HTML 5
-                </canvas><br>
-               <button class="w3-green w3-padding" id="f10a">AWAY</button>
-               <button class="w3-green w3-padding" id="f10t">TOWARDS</button>
-            </div>
-
-
-
-            <h2>Mapping to a co-ordinate system.</h2>
-                Any co-ordinate needs an origin point, and the obvious point to use in a two-body system is point zero.
-                The position of the mass point of each body in the system can be given by its' mass and distance from 
-                point zero. In a polar co-ordinate system, the position of a body is given by its distance and angle 
-                from the pole - point zero. The applied force always acts at a right angle to the input force; 
-                but the nett force remains the same. As the angle the force acts at remains the same, but the distance 
-                changes then the angle to point zero changes. When angle and distance change simultaenously, that is 
-                a spiral.
-            <br>
-            <div class="w3-cell w3-padding">
-                <canvas id="figure11" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
-                    Your browser does not support HTML 5
-                </canvas><br>
-               <button class="w3-green w3-padding" id="f11a">AWAY</button>
-               <button class="w3-green w3-padding" id="f11t">TOWARDS</button>
-            </div>
-
-
-
-        <h2>Formulae</h2>
-   <ul>
-    <li>&Delta;e = G.m/d</li>
-    <li>d = G.m/&nabla;e</li>
-    <li>m = d.G/&Delta;e</li>
-    <li>e = p.e+k.e</li>
-    <li>p.e = cos<sup>2</sup>&theta;</li>
-    <li>k.e = sin<sup>2</sup>&theta;</li>
-    <li>gradient = -1/p.e<sup>2</sup></li>
-   </ul>     
-   gradient as instantaeneous rate of change
-   \( \frac{d}{dt} \)
-    </div>
-
- 
-
-</div>
+    </p>
+    <h2>Potential energy.</h2>       
 
 </body>
 </html>
