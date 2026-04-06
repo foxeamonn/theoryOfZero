@@ -1,6 +1,6 @@
 import { show as showOne } from "./figureOne.js";
 import { show as showTwo } from "./FigureTwo.js";
-//import { show as showThree } from "./FigureThree.js";
+import { show as showThree } from "./FigureThree.js";
 //import { show as showFour } from "./FigureFour.js";
 import { show as showFive } from "./FigureFive.js";
 import { show as showSix } from "./FigureSix.js";
@@ -13,7 +13,7 @@ import { show as showSeven } from "./FigureSeven.js";
 showOne();
 showTwo();
 showFive();
-//showThree();
+showThree();
 //showFour();
 
 showSix();
