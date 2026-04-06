@@ -1,3 +1,5 @@
+// note: this 
+
 // import canvas functions
 import { drawText } from "./canvas.js";
 import { drawCircle } from "./canvas.js";
@@ -10,7 +12,7 @@ const ctx = diagram.getContext('2d');
 
 export function show() {
     drawText(ctx,"With no mechanism to transmit,", 10, 20, 16,"black");
-    drawText(ctx,"the force becomes potential energy. ", 10, 40, 16,"black");
+    drawText(ctx,"input force becomes potential energy. ", 10, 40, 16,"black");
 
     drawArrow(ctx, 50, 110, 50, 150, "black");
     simpleArrow(ctx, 220, 170, 20, "U", "black");
@@ -34,6 +36,6 @@ export function show() {
     drawText(ctx, "f",227,190, 15);
     drawText(ctx,"d", 173, 145, 15);
 
-    drawText(ctx,"Figure 3.", 10, 345, 18);
+    drawText(ctx,"Figure 6.", 10, 345, 18);
 
 }
