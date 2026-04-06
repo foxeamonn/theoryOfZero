@@ -1,4 +1,6 @@
 
+// inertial motion after acceleration
+
 // imported functions
 import { drawText, clearCanvas, drawCircle } from "./canvas.js";
 import { DisableButton, EnableButton } from "./utilities.js";
