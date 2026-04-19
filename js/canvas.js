@@ -213,43 +213,33 @@ export function drawBodyTriangle(ctx, body){
     const colour = body.colour;
     const fill = body.fill;
     const direction = body.direction;
-    const angle = body.angle;
+    const x1 = body.x1;
+    const y1 = body.y1;
 
-    const x1 = 0;
-    const y1 = 0;
-    let x2  = base;
+    let x2;
+    let x3;
     let y2 = y1;
-    let x3 = x2;
     let y3= height;
-    let mess = "A.F"
-    let mess1 = "I.F"
-    if(diag === "figure8" ) {mess = "K.E"; mess1 = "P.E"}
-
-
-    //console.log(direction);
-    //console.log("x1="+x1+" y1="+y1+" x2="+x2+" y2="+y2+" x3="+x3+" y3="+y3);
+   
+   
+   
+    y2 = y1;
     if(direction==="L"){
-        // green
-        x3=-x3;
-        x2=-x2;
-        y3=-y3;
-
-
-        drawText(ctx,mess,x2-20,y2-5,10,colour);
-        drawText(ctx,mess1,x2+10,y2+15,10,colour);
-        if(diag !== "figure13") drawBox(ctx, x2,y2-10, 10,10,false,colour);
-
+        x2 = x1 - base;
+        x3 = x2;
+        y3 = y1 - height;
+        
     }
     else{
         // blue
-
-        drawText(ctx,mess,x2+5,y2+20,10,colour);
-        drawText(ctx,mess1,x2-10,y2-10,10,colour);
-        if(diag !== "figure13") drawBox(ctx, x2-10,y2, 10,10,false,"blue");
+        x2 = x1 + base;
+        x3 = x2;
+        y3 = y1 + height;
+               
     }
-    //console.log("x1="+x1+" y1="+y1+" x2="+x2+" y2="+y2+" x3="+x3+" y3="+y3);
-    drawTriangle(ctx, x1, y1, x2, y2, x3, y3, fill, colour, angle);
-    drawCircle(ctx,x2,y2,2,colour);
+ 
+    drawTriangle(ctx, x1, y1, x2, y2, x3, y3, fill, colour, 0);
+    drawCircle(ctx, x2, y2, 2, colour);
 
 }
 
@@ -321,8 +311,8 @@ export function drawSection(ctx,radius,angle,colour){
 		ctx.closePath();
 }
 
-export function drawGrid(diag, gap = 10 , colour = lightBlue, quad = false){
-    ctx = diag.getContext("2d");
+export function drawGrid(diag, gap = 10 , colour = "LightBlue", quad = false){
+    const ctx = diag.getContext("2d");
 
     if(quad){
         drawText(ctx, "2", 50,50,16);

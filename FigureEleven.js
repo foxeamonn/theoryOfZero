@@ -24,7 +24,7 @@ export function show(moving = false) {
     drawText(ctx,"barycentre.", 10, 36, 16);
     drawText(ctx,"Figure 10.", 10, 350, 18);
     polarAxis(diagram);
-
+    
     if(!moving) return;
     if(direction === "A") {
         

@@ -282,7 +282,7 @@
   formula for force can just be F=Gm/d<sup>2</sup><br>
 
   <div class="w3-cell w3-padding">
-        <canvas id="figure30" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+        <canvas id="figure12" width="360" height="360" style="border:1px solid #000000; background-color: whitesmoke">
                 Your browser does not support HTML 5
         </canvas><br> 
     </div>
@@ -292,8 +292,55 @@
     If the applied force remains constant, this can be considered inertial motion. But what if the applied force 
     changes? In order for the nett force to remain the same, this means that fulcrum/barycentre must move also.
     <br>
-    
+     <div class="w3-cell w3-padding">
+        <canvas id="figure8" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+            Your browser does not support HTML 5
+        </canvas><br>
+        <button class="w3-green w3-padding" id="f8a">INCREASE</button>
+        <button class="w3-green w3-padding" id="f8t">DECREASE</button>
+    </div>
 
+    
+    <div class="w3-cell w3-padding">
+        <canvas id="figure9" width="400" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+            Your browser does not support HTML 5
+        </canvas><br>
+        <button class="w3-green w3-padding" id="f9a">AWAY</button>
+        <button class="w3-green w3-padding" id="f9t">TOWARDS</button>
+    </div>
+
+    <h2>Mapping to a co-ordinate system.</h2>
+       When two bodies are moving relative to each other, the position of their mass points changes, but their 
+       barycentre does not. As the barycentre (point zero) doesn't change, it can be used as the origin.
+       When a body moves, both its' applied force and potential force changes. 
+       Drawing an imaginary line representing the magnitude of the applied force to 
+       the point where the force is applied (point zero, or the pole of the co-ordinate system)
+       gives an angle 'θ', which will be the arctangent of the ratio of applied force to input force (the gradient).
+       This angle will change inversely with distance from the barycentre, which depends on its' mass.
+       In a polar co-ordinate system, the position of the mass point of a body can be given by its' distance from the pole and 
+       angle to the polar axis. Although it is usual to create the polar axis by drawing a horizontal line through the 
+       pole, this is an arbritrary choice. As the ratio angle changes, the angle to the polar axis changes proportionally,
+       so that product of masses an distances always cancel each other out at the barycentre.
+
+       <!--
+        As a body moves, its' applied force changes, and thus 
+       the gradient of applied force to input force. The gradient is entirely dependent 
+       on the distance from the barycentre, which in turn depends on the bodys' mass.
+       Drawing an imaginary line representing the magnitude of the applied force to 
+       the point where the force is applied (point zero, or the pole of the co-ordinate system)
+       gives an angle 'φ'.
+       -->
+       
+       
+       
+       <br>
+
+    <div class="w3-cell w3-padding">
+        <canvas id="coOrd" width="500" height="360" style="border:1px solid #000000; background-color: whitesmoke">
+            Your browser does not support HTML 5
+        </canvas><br>
+        
+    </div>
   
 </body>
 </html>

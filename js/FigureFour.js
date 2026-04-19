@@ -2,7 +2,7 @@
 import { drawText, drawCircle, drawArrowTriangle, drawLineLength } from "./canvas.js"; 
 import { clearCanvas, drawBodyTriangle, DrawTriangleObj } from "./canvas.js";
 import { DisableButton, EnableButton } from "./utilities.js";
-import { MakeTriangle, Update } from "./triangle.js";
+import { triangle, Update } from "./triangle.js";
 import { showCoord } from "./CoOrdinates.js";
 
 

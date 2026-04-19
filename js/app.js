@@ -5,8 +5,10 @@ import { show as showThree } from "./FigureThree.js";
 import { show as showFive } from "./FigureFive.js";
 import { show as showSix } from "./FigureSix.js";
 import { show as showSeven } from "./FigureSeven.js";
-//import { show as showEight } from "./FigureEight.js";
-//import { show as showNine } from "./FigureNine.js";
+import { show as showEight } from "./FigureEight.js";
+import { show as showNine } from "./FigureNine.js";
+import { show as showTwelve} from "./FigureTwelve.js";
+import { show as coOrdinates } from "./CoOrdinateSystem.js"
 //import { show as showTen } from "./FigureTen.js";
 
 // draw diagrams
@@ -18,6 +20,9 @@ showThree();
 
 showSix();
 showSeven();
-//showEight();
-//showNine();
+showTwelve();
+showEight();
+showNine();
+coOrdinates();
+
 //showTen();

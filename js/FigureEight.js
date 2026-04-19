@@ -1,4 +1,4 @@
-// acceleration
+// acceleration. 
 
 // imported function
 import { drawText, clearCanvas, drawCircle, drawArrow } from "./canvas.js";
@@ -23,8 +23,8 @@ let direction;
 export function show(moving = false) {
     clearCanvas(diagram);
     drawText(ctx,"The barycentre changes with B accelerating",5,20,16);
-    drawText(ctx,"(changing energy levels).", 5,36,16);
-    drawText(ctx,"Figure 10.", 10, 350, 18);
+    drawText(ctx,"(changing force/energy levels).", 5,36,16);
+    drawText(ctx,"Figure 8.", 10, 350, 18);
 
     drawText(ctx,"A", 30, 180, 24, "blue");
     drawText(ctx,"B", 315, 180, bFont, "green");

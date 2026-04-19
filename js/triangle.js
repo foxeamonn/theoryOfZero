@@ -1,7 +1,7 @@
 // triangle functions
 
-export class MakeTriangle {
-    constructor(x1, y1, base, height, colour = "black",  fill = false, id="none") {
+export class triangle {
+    constructor(x1, y1, base, height, colour = "black",  fill = false, id="none", direction="L") {
         this.base = base;
         this.height = height;
         this.x1 = x1;
@@ -10,6 +10,7 @@ export class MakeTriangle {
         this.colour = colour;
         this.fill = fill;
         this.id = id;
+        this.direction = direction;
         this.area = (base * height);
 
         if(id === "triangleOne"){
